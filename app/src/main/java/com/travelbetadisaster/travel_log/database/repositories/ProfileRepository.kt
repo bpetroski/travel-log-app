@@ -1,4 +1,6 @@
 package com.travelbetadisaster.travel_log.database.repositories
 
-class ProfileRepository {
+import android.app.Application
+
+class ProfileRepository(application: Application) {
 }
