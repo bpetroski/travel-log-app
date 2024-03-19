@@ -31,8 +31,8 @@ com.travelbetadisaster.travel_log.app-navigation-runtime-2.7.7-29 /Users/hanchoi
 com.travelbetadisaster.travel_log.app-lifecycle-runtime-2.7.0-30 /Users/hanchoi/.gradle/caches/transforms-3/9ea1af8f249e0902e19a5ae301dfb27b/transformed/lifecycle-runtime-2.7.0/res
 com.travelbetadisaster.travel_log.app-navigation-fragment-2.7.7-31 /Users/hanchoi/.gradle/caches/transforms-3/a7b8fefe0da7389af4fe8d39c313ff4c/transformed/navigation-fragment-2.7.7/res
 com.travelbetadisaster.travel_log.app-emoji2-views-helper-1.2.0-32 /Users/hanchoi/.gradle/caches/transforms-3/a8da8f2b963b2d280b9e00863cd5f5d4/transformed/emoji2-views-helper-1.2.0/res
-com.travelbetadisaster.travel_log.app-fragment-1.6.2-33 /Users/hanchoi/.gradle/caches/transforms-3/b0dbc3ba5fb4eedf55b34bf48e1d0cde/transformed/fragment-1.6.2/res
-com.travelbetadisaster.travel_log.app-places-3.3.0-34 /Users/hanchoi/.gradle/caches/transforms-3/b10c63e9719cf5d7eb423007f3f0dd34/transformed/places-3.3.0/res
+com.travelbetadisaster.travel_log.app-media-1.0.0-33 /Users/hanchoi/.gradle/caches/transforms-3/ac2d171a65d7fd55e2b4c2b1125d8bc5/transformed/media-1.0.0/res
+com.travelbetadisaster.travel_log.app-fragment-1.6.2-34 /Users/hanchoi/.gradle/caches/transforms-3/b0dbc3ba5fb4eedf55b34bf48e1d0cde/transformed/fragment-1.6.2/res
 com.travelbetadisaster.travel_log.app-savedstate-1.2.1-35 /Users/hanchoi/.gradle/caches/transforms-3/b9b08451134234bc5d6f71e85cf61dc1/transformed/savedstate-1.2.1/res
 com.travelbetadisaster.travel_log.app-emoji2-1.2.0-36 /Users/hanchoi/.gradle/caches/transforms-3/be93e09b5caa959037438b6e0f4b38d2/transformed/emoji2-1.2.0/res
 com.travelbetadisaster.travel_log.app-play-services-basement-18.0.0-37 /Users/hanchoi/.gradle/caches/transforms-3/bef0110c4bfef8ca30d47f9a808c96ea/transformed/play-services-basement-18.0.0/res

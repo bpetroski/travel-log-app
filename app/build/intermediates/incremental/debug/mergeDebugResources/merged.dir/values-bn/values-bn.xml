@@ -119,14 +119,6 @@
     <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"উপরে নেভিগেট করুন"</string>
     <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"নেভিগেশন ড্রয়ার খুলুন"</string>
     <string name="password_toggle_content_description">পাসওয়ার্ড দেখান</string>
-    <string name="places_autocomplete_clear_button">সার্চ মুছুন</string>
-    <string name="places_autocomplete_label">একটি জায়গা বাছুন</string>
-    <string name="places_autocomplete_no_results_for_query">%1$s-এর জন্য কোনও ফলাফল নেই</string>
-    <string name="places_autocomplete_search_hint">জায়গা খুঁজুন</string>
-    <string name="places_cancel">বাতিল করুন</string>
-    <string name="places_powered_by_google">Google দ্বারা পরিচালিত</string>
-    <string name="places_search_error">সার্চের ফলাফল লোড করা যাচ্ছে না।</string>
-    <string name="places_try_again">আবার করুন</string>
     <string msgid="6264217191555673260" name="search_menu_title">"সার্চ করুন"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"৯৯৯+"</string>
 </resources>

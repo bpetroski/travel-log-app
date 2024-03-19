@@ -1,7 +1,7 @@
 [
     {
-        "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/fragment_slideshow.xml",
-        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_slideshow.xml"
+        "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/fragment_journal_list.xml",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_journal_list.xml"
     },
     {
         "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/activity_main.xml",
@@ -12,16 +12,20 @@
         "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/content_main.xml"
     },
     {
+        "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/fragment_profile.xml",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_profile.xml"
+    },
+    {
         "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/fragment_maps.xml",
         "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_maps.xml"
     },
     {
-        "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/nav_header_main.xml",
-        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/nav_header_main.xml"
+        "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/fragment_journal_entry.xml",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_journal_entry.xml"
     },
     {
-        "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/fragment_gallery.xml",
-        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_gallery.xml"
+        "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/nav_header_main.xml",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/nav_header_main.xml"
     },
     {
         "merged": "com.travelbetadisaster.travel_log.app-mergeDebugResources-51:/layout/app_bar_main.xml",

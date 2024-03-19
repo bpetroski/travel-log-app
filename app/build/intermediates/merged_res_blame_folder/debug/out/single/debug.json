@@ -12,6 +12,14 @@
         "source": "com.travelbetadisaster.travel_log.app-main-54:/menu/main.xml"
     },
     {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_journal_entry.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_journal_entry.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_profile.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_profile.xml"
+    },
+    {
         "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_nav_header_main.xml.flat",
         "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/nav_header_main.xml"
     },
@@ -44,20 +52,12 @@
         "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/side_nav_bar.xml"
     },
     {
-        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_checked_24.xml.flat",
-        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/checked_24.xml"
-    },
-    {
         "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_ic_launcher_foreground.xml.flat",
         "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/ic_launcher_foreground.xml"
-    },
-    {
-        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_gallery.xml.flat",
-        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_gallery.xml"
     },
     {
         "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_ic_launcher_background.xml.flat",
@@ -112,8 +112,8 @@
         "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_maps.xml"
     },
     {
-        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_slideshow.xml.flat",
-        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_slideshow.xml"
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_journal_list.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_journal_list.xml"
     },
     {
         "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
