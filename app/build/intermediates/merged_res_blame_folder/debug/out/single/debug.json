@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_activity_main.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/xml_data_extraction_rules.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/menu_main.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/menu/main.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_nav_header_main.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/xml_backup_rules.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/menu_activity_main_drawer.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/menu/activity_main_drawer.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_ic_menu_gallery.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/ic_menu_gallery.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_side_nav_bar.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/side_nav_bar.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_checked_24.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/checked_24.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_gallery.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_gallery.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_app_bar_main.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/app_bar_main.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_ic_menu_camera.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/ic_menu_camera.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_home.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/drawable_ic_menu_slideshow.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/drawable/ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/navigation_mobile_navigation.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/navigation/mobile_navigation.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_maps.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_maps.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_fragment_slideshow.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/fragment_slideshow.xml"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.travelbetadisaster.travel_log.app-merged_res-52:/layout_content_main.xml.flat",
+        "source": "com.travelbetadisaster.travel_log.app-main-54:/layout/content_main.xml"
+    }
+]
