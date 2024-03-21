@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "users")
-
 class User {
 
     @PriamryKey(autoGenerate = true)
@@ -47,5 +46,3 @@ class User {
         this.password = password
 
     }
-
-}

@@ -1,0 +1,1 @@
+﻿Hello, I'm Brenden Petroski, and I'm 22 years old. I'm in the final stretch of completing my associates in Java Computer Science. Right now, I work at a phone store. I enjoy tackling problems and coding in Java. Helping people find the right tech solutions is something I find fulfilling. Let's chat about coding, gadgets, or anything interesting in the tech world!
