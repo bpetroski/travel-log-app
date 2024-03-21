@@ -117,6 +117,3 @@ class ProfileRepository(application: Application) {
     }
 
 }
-
-class ProfileRepository(application: Application) {
-}
