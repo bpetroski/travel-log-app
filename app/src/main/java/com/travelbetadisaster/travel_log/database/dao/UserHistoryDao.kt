@@ -14,6 +14,7 @@ interface UserHistoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertHistory(userHistory: UserHistory)
 //  @Query("SELECT * FROM ProfileHistory ORDER BY id ASC") TODO("Update SQL queries when db tables are properly made")
+    @Query("SELECT * FROM user_history")
     fun getAllHistory(): LiveData<List<UserHistory>>
     fun getHistory(id: Int): UserHistory
     fun deleteHistory(id: Int)
