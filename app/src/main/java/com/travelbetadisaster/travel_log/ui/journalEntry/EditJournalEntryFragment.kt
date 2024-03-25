@@ -1,4 +1,4 @@
-package com.travelbetadisaster.travel_log.ui.editJournal
+package com.travelbetadisaster.travel_log.ui.journalEntry
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -14,7 +14,7 @@ class EditJournalEntryFragment : Fragment() {
         fun newInstance() = EditJournalEntryFragment()
     }
 
-    private lateinit var viewModel: EditJournalEntryViewModel
+    private lateinit var viewModel: JournalEntryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class EditJournalEntryFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EditJournalEntryViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(JournalEntryViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
