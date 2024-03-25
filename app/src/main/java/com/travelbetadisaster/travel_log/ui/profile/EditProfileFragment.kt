@@ -1,4 +1,4 @@
-package com.travelbetadisaster.travel_log.ui.editProfile
+package com.travelbetadisaster.travel_log.ui.profile
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -14,7 +14,7 @@ class EditProfileFragment : Fragment() {
         fun newInstance() = EditProfileFragment()
     }
 
-    private lateinit var viewModel: EditProfileViewModel
+    private lateinit var viewModel: ProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class EditProfileFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EditProfileViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
