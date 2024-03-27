@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "locations")
-
 class Location {
 
     @PrimaryKey(autoGenerate = true)
@@ -43,5 +42,3 @@ class Location {
         this.longitude = longitude
 
     }
-
-}
