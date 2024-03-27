@@ -2,7 +2,7 @@ package com.travelbetadisaster.travel_log.database.tables
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 @Entity(tableName = "bucketlist_entries")
-class BucketList {
+class BucketListEntry {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
         private set

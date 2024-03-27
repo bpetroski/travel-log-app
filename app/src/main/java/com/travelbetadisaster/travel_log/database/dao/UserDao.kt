@@ -11,5 +11,5 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.ABORT) // set as abort for now, may change depending on needs
     fun insertUser(newUser: User)
     fun updateUser(user: User)
-    fun getUser(): User
+    fun getUser(id: Int): User
 }
