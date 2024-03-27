@@ -13,6 +13,9 @@ class Location {
     var id:Int = 0
 
     @ColumnInfo(name = "name")
+    @ColumnInfo(name = "description")
+    @ColumnInfo(name = "lattitude")
+    @ColumnInfo(name = "longitude")
     var name:String? = null
     var description:String? = null
     var lattitude:String? = null

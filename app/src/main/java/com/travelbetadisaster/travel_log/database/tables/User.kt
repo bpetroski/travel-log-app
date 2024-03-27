@@ -1,5 +1,6 @@
 package com.travelbetadisaster.travel_log.database.tables
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -12,6 +13,11 @@ class User {
     var id:Int = 0
 
     @ColumnInfo(name = "name")
+    @ColumnInfo(name = "profilePic")
+    @ColumnInfo(name = "bio")
+    @ColumnInfo(name = "homeLocation")
+    @ColumnInfo(name = "email")
+    @ColumnInfo(name = "password")
     var name:String? = null
     var profilePic:String? = null
     var bio:String? = null
@@ -49,3 +55,5 @@ class User {
     }
 
 }
+
+annotation class ColumnInfo(val name: String)
