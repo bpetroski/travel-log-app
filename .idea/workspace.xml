@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22e06318-ade2-45c5-b5cc-daac32cb5a2e" name="Changes" comment="m" />
+    <list default="true" id="22e06318-ade2-45c5-b5cc-daac32cb5a2e" name="Changes" comment="Merge remote-tracking branch 'origin/HanChoi' into HanChoi&#10;&#10;# Conflicts:&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/dao/VisitDao.kt&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/tables/User.kt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +53,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4e329078-7180-4cee-a221-267a79d15d8b" />
+        <option name="url" value="https://github.com/bpetroski/travel-log-app/" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -61,17 +74,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hanchoi/Documents/CPS298HanChoi/travel-log-app&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/Users/hanchoi/Documents/CPS298HanChoi/travel-log-app",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="Travel_Log.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -146,6 +161,40 @@
       <option name="presentableId" value="Default" />
       <updated>1709164972608</updated>
     </task>
+    <task id="LOCAL-00001" summary="m">
+      <created>1710880169641</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710880169641</updated>
+    </task>
+    <task id="LOCAL-00002" summary="m">
+      <created>1710976551695</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710976551695</updated>
+    </task>
+    <task id="LOCAL-00003" summary="m">
+      <created>1711505477798</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711505477798</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/HanChoi' into HanChoi&#10;&#10;# Conflicts:&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/dao/VisitDao.kt&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/tables/User.kt">
+      <created>1711505745341</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711505745341</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="m" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/HanChoi' into HanChoi&#10;&#10;# Conflicts:&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/dao/VisitDao.kt&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/tables/User.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/HanChoi' into HanChoi&#10;&#10;# Conflicts:&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/dao/VisitDao.kt&#10;#&#9;app/src/main/java/com/travelbetadisaster/travel_log/database/tables/User.kt" />
   </component>
 </project>
