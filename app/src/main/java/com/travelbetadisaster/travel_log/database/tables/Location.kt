@@ -13,8 +13,14 @@ class Location {
 
     @ColumnInfo(name = "name")
     var name:String? = null
+    
+    @ColumnInfo(name = "description")
     var description:String? = null
+
+    @ColumnInfo(name = "lattitude")
     var lattitude:String? = null
+
+    @ColumnInfo(name = "longitude")
     var longitude:String? = null
 
     constructor() {}
