@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalListBinding
 
 
-
 class JournalListFragment : Fragment(), OnItemClickListener  {
 
     private var adapter: JournalListAdapter? = null
@@ -37,14 +36,14 @@ class JournalListFragment : Fragment(), OnItemClickListener  {
 
 
     private fun listenerSetup() {
-        binding.cardView.setOnClickListener { onCardViewClick() }
+        //todo implement when rest of buttons are added to layout
     }
 
     private fun observerSetup() {
         viewModel.getAllVisits()?.observe(viewLifecycleOwner) { visits ->
             visits?.let { adapter?.setVisitList(it) }
         }
-        viewModel.getSearchResults()?.observe(viewLifecycleOwner) { visits ->
+        viewModel.getSearchResults().observe(viewLifecycleOwner) { visits ->
             visits?.let {
                 if (it.isNotEmpty()) {
                     adapter?.setVisitList(it)
@@ -55,22 +54,23 @@ class JournalListFragment : Fragment(), OnItemClickListener  {
                     ).show()
             }
         }
-        viewModel.journalList.observe(viewLifecycleOwner) { journals ->
-            adapter.submitList(journals)
+        viewModel.getSortedList().observe(viewLifecycleOwner) { visits ->
+            visits?.let {
+                if (it.isNotEmpty()) {
+                    adapter?.setVisitList(it)
+                }
+            }
         }
     }
 
     private fun recyclerSetup() {
         adapter = JournalListAdapter(this)
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.visitRecycler.adapter = adapter
+        binding.visitRecycler.layoutManager = LinearLayoutManager(requireContext())
     }
 
-    private fun onListClick(journal: Journal) {
-    }
-
-    override fun onItemClick(int: Int) {
-        viewModel.showVisit(int)
+    override fun onItemClick(id: Int) {
+        viewModel.showVisit(id)
     }
 
 }

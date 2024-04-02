@@ -4,29 +4,31 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "locations")
+@Entity(tableName = "location")
 class Location {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "locationID")
-    var id:Int = 0
+    var id: Int = 0
 
     @ColumnInfo(name = "name")
-    var name:String? = null
-    
+    var name: String? = null
+
     @ColumnInfo(name = "description")
-    var description:String? = null
+    var description: String? = null
 
     @ColumnInfo(name = "lattitude")
-    var lattitude:String? = null
+    var lattitude: String? = null
 
     @ColumnInfo(name = "longitude")
-    var longitude:String? = null
+    var longitude: String? = null
 
     constructor() {}
 
-    constructor(id: Int, name: String, description: String,
-                lattitude: String, longitude: String){
+    constructor(
+        id: Int, name: String, description: String,
+        lattitude: String, longitude: String
+    ) {
 
         this.id = id
         this.name = name
@@ -36,8 +38,10 @@ class Location {
 
     }
 
-    constructor(name: String, description: String,
-                lattitude: String, longitude: String){
+    constructor(
+        name: String, description: String,
+        lattitude: String, longitude: String
+    ) {
 
         this.name = name
         this.description = description
@@ -45,3 +49,4 @@ class Location {
         this.longitude = longitude
 
     }
+}
