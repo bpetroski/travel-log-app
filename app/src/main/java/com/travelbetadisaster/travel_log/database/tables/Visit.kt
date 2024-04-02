@@ -19,7 +19,7 @@ class Visit {
     var location:Int = 0
 
     @ColumnInfo(name = "image")
-    var image:String? = null
+    var image: Int? = null
 
     @ColumnInfo(name = "text")
     var text:String? = null
@@ -30,7 +30,7 @@ class Visit {
     constructor() {}
 
     constructor(id: Int, name: String, location: Int,
-                image: String, text: String,
+                image: Int, text: String,
                 tripID: Int){
 
         this.id = id
@@ -43,7 +43,7 @@ class Visit {
     }
 
     constructor(name: String, location: Int,
-                image: String, text: String,
+                image: Int, text: String,
                 tripID: Int){
 
         this.name = name

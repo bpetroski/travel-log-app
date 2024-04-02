@@ -6,13 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.Visit
 
 interface OnItemClickListener {
-    fun onItemClick(int: Int)
+    fun onItemClick(id: Int)
 }
 
 class JournalListAdapter(private val listener: OnItemClickListener) :
@@ -31,16 +30,16 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
 
     override fun onBindViewHolder(holder: JournalViewHolder, position: Int) {
         journalList.let {
-            holder.visitTitle = it!![position].name
-            holder.visitThumbnail = it[position].image //will probably need some kind of find by id
+            holder.visitTitle.text = it!![position].name
+            holder.visitThumbnail.setImageResource(it[position].image!!) //will probably need some kind of find by id
         }
-        holder.itemView.setOnClickListener(
+        holder.itemView.setOnClickListener{
             journalList.let { listener.onItemClick(it!![position].id) }
-        )
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setContactList(visits: List<Visit>) {
+    fun setVisitList(visits: List<Visit>) {
         journalList = visits
         notifyDataSetChanged()
     }
@@ -49,13 +48,13 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
         var visitTitle: TextView
         var visitThumbnail: ImageView
         init {
-            visitTitle = itemView.findViewById(R.id.visit_title)
-            visitThumbnail = itemView.findViewById(R.id.visit_thumbnail)
+            visitTitle = itemView.findViewById(R.id.journalTitle)
+            visitThumbnail = itemView.findViewById(R.id.journalImage)
         }
     }
 
 
-    class JournalDiffCallback : DiffUtil.ItemCallback<Visit>() {
+    /*class JournalDiffCallback : DiffUtil.ItemCallback<Visit>() {
         override fun areItemsTheSame(oldItem: Visit, newItem: Visit): Boolean {
             return oldItem.id == newItem.id
         }
@@ -63,5 +62,5 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
         override fun areContentsTheSame(oldItem: Visit, newItem: Visit): Boolean {
             return oldItem == newItem
         }
-    }
+    }*/
 }

@@ -1,5 +1,6 @@
 package com.travelbetadisaster.travel_log.database.tables
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -7,7 +8,7 @@ import androidx.room.PrimaryKey
 
 class User {
 
-    @PriamryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "userId")
     var id:Int = 0
 
