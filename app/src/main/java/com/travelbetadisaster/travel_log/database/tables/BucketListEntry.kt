@@ -1,27 +1,19 @@
 package com.travelbetadisaster.travel_log.database.tables
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 @Entity(tableName = "bucketlist_entries")
 class BucketListEntry {
     @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
-        private set
+    @ColumnInfo(name = "id")
+    var id: Int = 0
 
-    var title: String = ""
-        set(value) {
-            field = value
-        }
-        get() = field
+    @ColumnInfo(name = "title")
+    var title: String? = null
 
-    var description: String = ""
-        set(value) {
-            field = value
-        }
-        get() = field
+    @ColumnInfo(name = "description")
+    var description: String? = null
 
+    @ColumnInfo(name = "completed")
     var isCompleted: Boolean = false
-        set(value) {
-            field = value
-        }
-        get() = field
 }

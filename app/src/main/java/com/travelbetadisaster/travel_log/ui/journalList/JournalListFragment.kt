@@ -1,23 +1,20 @@
 package com.travelbetadisaster.travel_log.ui.journalList
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.travelbetadisaster.travel_log.R
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalListBinding
-import com.travelbetadisaster.travel_log.ui.journalList.adapter.JournalListAdapter
-import com.travelbetadisaster.travel_log.ui.journalList.viewModel.JournalListViewModel
 
 
-class JournalListFragment : Fragment() {
+class JournalListFragment : Fragment(), OnItemClickListener  {
 
-    private lateinit var adapter: JournalListAdapter
-    private lateinit var viewModel: JournalListViewModel
+    private var adapter: JournalListAdapter? = null
+    val viewModel: JournalListViewModel by viewModels()
     private var _binding: FragmentJournalListBinding? = null
     private val binding get() = _binding!!
 
@@ -29,52 +26,51 @@ class JournalListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_journal_list, container, false)
+        _binding = FragmentJournalListBinding.inflate(inflater, container, false)
+        listenerSetup()
+        observerSetup()
+        recyclerSetup()
+
+        return binding.root
     }
 
-    listenerSetup()
-    observerSetup()
-    recyclerSetup()
 
-    return view
-}
-
-private fun listenerSetup() {
-    binding.cardView.setOnClickListener { onCardViewClick() }
-}
-
-private fun observerSetup() {
-    viewModel.journalList.observe(viewLifecycleOwner) { journals ->
-        adapter.submitList(journals)
-    }
-}
-
-private fun recyclerSetup() {
-    adapter = JournalListAdapter()
-    binding.recyclerView.adapter = adapter
-    binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-    adapter.setOnItemClickListener { journal ->
-        onListClick(journal)
-    }
-}
-
-private fun onListClick(journal: Journal) {
-}
-
-private fun onCardViewClick() {
-}
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(JournalListViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun listenerSetup() {
+        //todo implement when rest of buttons are added to layout
     }
 
-override fun onDestroyView() {
-    super.onDestroyView()
-    _binding = null
+    private fun observerSetup() {
+        viewModel.getAllVisits()?.observe(viewLifecycleOwner) { visits ->
+            visits?.let { adapter?.setVisitList(it) }
+        }
+        viewModel.getSearchResults().observe(viewLifecycleOwner) { visits ->
+            visits?.let {
+                if (it.isNotEmpty()) {
+                    adapter?.setVisitList(it)
+                } else
+                    Toast.makeText(
+                        activity, "You must enter a search criteria",
+                        Toast.LENGTH_SHORT
+                    ).show()
+            }
+        }
+        viewModel.getSortedList().observe(viewLifecycleOwner) { visits ->
+            visits?.let {
+                if (it.isNotEmpty()) {
+                    adapter?.setVisitList(it)
+                }
+            }
+        }
+    }
+
+    private fun recyclerSetup() {
+        adapter = JournalListAdapter(this)
+        binding.visitRecycler.adapter = adapter
+        binding.visitRecycler.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    override fun onItemClick(id: Int) {
+        viewModel.showVisit(id)
     }
 
 }
