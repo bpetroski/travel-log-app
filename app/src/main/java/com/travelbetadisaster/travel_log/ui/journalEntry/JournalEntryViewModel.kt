@@ -3,8 +3,8 @@ package com.travelbetadisaster.travel_log.ui.journalEntry
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.travelbetadisaster.travel_log.database.entities.Visit
 import com.travelbetadisaster.travel_log.database.repositories.JournalRepository
+import com.travelbetadisaster.travel_log.database.tables.Visit
 import kotlinx.coroutines.launch
 
 class JournalEntryViewModel(application: Application) : AndroidViewModel(application) {
