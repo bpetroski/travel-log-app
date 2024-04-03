@@ -31,7 +31,7 @@
         android:id="@+id/journalListFragment2"
         android:name="com.travelbetadisaster.travel_log.ui.journalList.JournalListFragment"
         android:label="fragment_journal_list"
-        tools:layout="@layout/fragment_journal_list" />
+        tools:layout="@layout/item_journal" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.travelbetadisaster.travel_log.ui.profile.ProfileFragment"

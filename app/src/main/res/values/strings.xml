@@ -22,4 +22,13 @@
     <string name="set_location">Set Location</string>
     <string name="location">Location</string>
     <string name="add_picture">Add Picture</string>
+
+    <string name="visit_title">visit_title</string>
+    <string name="searchByName">Search By Name</string>
+    <string name="add">Add new Entry</string>
+    <string name="addVisit">New Visit</string>
+    <string name="search">Search</string>
+    <string name="asc">Sort asc</string>
+    <string name="desc">Sort Desc</string>
+    <string name="addBLentry">New Entry</string>
 </resources>
