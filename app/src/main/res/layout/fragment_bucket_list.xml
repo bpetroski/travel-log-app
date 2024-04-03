@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/journalListFragment"
+    android:id="@+id/bucketListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.journalList.JournalListFragment">
+    tools:context=".ui.bucketList.BucketListFragment">
 
     <EditText
         android:id="@+id/searchText"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
             android:layout_weight="1"
-            android:text="@string/addVisit"
+            android:text="@string/addBLentry"
             tools:ignore="ButtonStyle" />
 
         <Button
@@ -65,8 +65,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/visit_recycler"
+        android:id="@+id/bucket_list_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

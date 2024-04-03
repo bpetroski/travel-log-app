@@ -1,3 +1,5 @@
+package com.travelbetadisaster.travel_log.ui.maps
+
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -21,9 +23,11 @@ class MapsViewModel(application: Application) : AndroidViewModel(application) {
         mapRepository = MapRepository(mapDao)
     }
 
+
     private val _text = MutableLiveData<String>().apply {
         value = "This is map Fragment."
     }
+
     val text: LiveData<String> = _text
 
     fun getLastKnownLocation(): LatLng? = mapRepository.getLastKnownUserLocation()

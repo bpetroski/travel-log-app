@@ -23,7 +23,7 @@ class JournalRepository(application: Application) {
     init {
         val db: TravelRoomDataBase? = TravelRoomDataBase.getDatabase(application)
         visitDao = db?.visitDao()
-        allVisits = visitDao?.getAllVisits()
+        allVisits = visitDao?.getAllVisit()
     }
 
     fun insertVisit(newVisit: Visit) {
@@ -56,17 +56,17 @@ class JournalRepository(application: Application) {
         coroutineScope.async(Dispatchers.IO) { return@async visitDao?.findVisit(name) }.await()
 
     fun sortVisitAsc() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitAsc()}
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitAsc() }
     }
     private suspend fun asyncSortVisitAsc(): List<Visit>? = coroutineScope.async(Dispatchers.IO) {
         return@async visitDao?.sortVisitAsc() }.await()
     fun sortVisitDesc() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitDesc()}
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitDesc() }
     }
     private suspend fun asyncSortVisitDesc(): List<Visit>? = coroutineScope.async(Dispatchers.IO) {
         return@async visitDao?.sortVisitDesc() }.await()
     fun sortVisitByLocation() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitByLocation()}
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitByLocation() }
     }
     private suspend fun asyncSortVisitByLocation(): List<Visit>? = coroutineScope.async(Dispatchers.IO) {
         return@async visitDao?.sortVisitByLocation() }.await()

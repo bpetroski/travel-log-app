@@ -1,4 +1,4 @@
-package com.travelbetadisaster.travel_log.ui.journalList
+package com.travelbetadisaster.travel_log.ui.bucketList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,25 +8,27 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.travelbetadisaster.travel_log.databinding.FragmentJournalListBinding
+import com.travelbetadisaster.travel_log.databinding.FragmentBucketListBinding
+import com.travelbetadisaster.travel_log.ui.journalList.BucketListAdapter
+import com.travelbetadisaster.travel_log.ui.journalList.OnCompleteClickListener
+import com.travelbetadisaster.travel_log.ui.journalList.OnEntryClickListener
 
-
-class JournalListFragment : Fragment(), OnItemClickListener  {
-
-    private var adapter: JournalListAdapter? = null
-    val viewModel: JournalListViewModel by viewModels()
-    private var _binding: FragmentJournalListBinding? = null
-    private val binding get() = _binding!!
+class BucketListFragment : Fragment(), OnEntryClickListener, OnCompleteClickListener {
 
     companion object {
-        fun newInstance() = JournalListFragment()
+        fun newInstance() = BucketListFragment()
     }
+
+    private var adapter: BucketListAdapter? = null
+    val viewModel: BucketListViewModel by viewModels()
+    private var _binding: FragmentBucketListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentJournalListBinding.inflate(inflater, container, false)
+        _binding = FragmentBucketListBinding.inflate(inflater, container, false)
         listenerSetup()
         observerSetup()
         recyclerSetup()
@@ -34,19 +36,17 @@ class JournalListFragment : Fragment(), OnItemClickListener  {
         return binding.root
     }
 
-
     private fun listenerSetup() {
         //todo implement when rest of buttons are added to layout
     }
-
     private fun observerSetup() {
-        viewModel.getAllVisits()?.observe(viewLifecycleOwner) { visits ->
-            visits?.let { adapter?.setVisitList(it) }
+        viewModel.getAllEntries()?.observe(viewLifecycleOwner) { visits ->
+            visits?.let { adapter?.setBucketList(it) }
         }
         viewModel.getSearchResults().observe(viewLifecycleOwner) { visits ->
             visits?.let {
                 if (it.isNotEmpty()) {
-                    adapter?.setVisitList(it)
+                    adapter?.setBucketList(it)
                 } else
                     Toast.makeText(
                         activity, "You must enter a search criteria",
@@ -57,20 +57,24 @@ class JournalListFragment : Fragment(), OnItemClickListener  {
         viewModel.getSortedList().observe(viewLifecycleOwner) { visits ->
             visits?.let {
                 if (it.isNotEmpty()) {
-                    adapter?.setVisitList(it)
+                    adapter?.setBucketList(it)
                 }
             }
         }
     }
 
     private fun recyclerSetup() {
-        adapter = JournalListAdapter(this)
-        binding.visitRecycler.adapter = adapter
-        binding.visitRecycler.layoutManager = LinearLayoutManager(requireContext())
+        adapter = BucketListAdapter(this, this)
+        binding.bucketListRecycler.adapter = adapter
+        binding.bucketListRecycler.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onItemClick(id: Int) {
-        viewModel.showVisit(id)
+        viewModel.showEntry(id)
+    }
+
+    override fun onCompleteClick(id: Int) {
+        viewModel.setComplete(id)
     }
 
 }
