@@ -39,13 +39,13 @@
             android:ems="10"
             android:hint="Hometown"
             android:inputType="textPostalAddress"
-            app:layout_constraintBottom_toTopOf="@+id/name"
+            app:layout_constraintBottom_toTopOf="@+id/nameContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bio"
+            android:id="@+id/bioContainer"
             android:layout_width="395dp"
             android:layout_height="52dp"
             tools:layout_editor_absoluteX="1dp"
@@ -53,7 +53,7 @@
             tools:text="Enter Bio" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name"
+            android:id="@+id/nameContainer"
             android:layout_width="422dp"
             android:layout_height="58dp"
             android:hint="Enter Name"
@@ -73,7 +73,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bio" />
+            app:layout_constraintTop_toBottomOf="@+id/bioContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
