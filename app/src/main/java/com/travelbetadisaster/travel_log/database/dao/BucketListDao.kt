@@ -4,6 +4,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import androidx.lifecycle.LiveData
 import com.travelbetadisaster.travel_log.database.tables.BucketListEntry
 
 @Dao
@@ -14,11 +15,11 @@ interface BucketListDao {
     @Update
     fun updateEntry(bucketListEntryEntry: BucketListEntry)
 
-    @Delete
-    fun deleteEntry(bucketListEntryEntry: BucketListEntry)
+    @Query("DELETE FROM bucketlist_entries where id = :id")
+    fun deleteEntry(id: Int)
 
     @Query("SELECT * FROM bucketlist_entries")
-    fun getAllEntries(): List<BucketListEntry>
+    fun getAllEntries(): LiveData<List<BucketListEntry>>
 
     @Query("SELECT * FROM bucketlist_entries WHERE id = :id")
     fun getEntry(id: Int): BucketListEntry

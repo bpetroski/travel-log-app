@@ -33,7 +33,7 @@ class LocationRepository(application: Application) {
         locationDao?.insertLocation(location)
     }
 
-    fun getVisit(id: Int) {
+    fun getLocation(id: Int) {
          coroutineScope.launch(Dispatchers.IO) { location = asyncGetLocation(id) }
     }
 

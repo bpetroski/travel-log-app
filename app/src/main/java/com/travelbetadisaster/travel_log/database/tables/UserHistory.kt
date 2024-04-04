@@ -8,23 +8,44 @@ import java.util.Date
 class UserHistory {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "historyId")
-    val historyId: Int = 0
+    var historyId: Int = 0
 
     @ColumnInfo(name = "userId")
-    val userId: Int = 0
+    var userId: Int = 0
 
     @ColumnInfo(name = "activityType")
-    val activityType: String? = null
+    var activityType: String? = null
 
     @ColumnInfo(name = "activityDate")
-    val activityDate: Date? = null
+    var activityDate: Date? = null
 
     @ColumnInfo(name = "description")
-    val description: String? = null
+    var description: String? = null
 
     @ColumnInfo(name = "totalMiles")
-    val totalMiles: Double = 0.0
+    var totalMiles: Double = 0.0
 
     @ColumnInfo(name = "visitId")
-    val visitId: Int = 0
+    var visitId: Int = 0
+
+    constructor() {}
+
+    constructor(id: Int, userId: Int, activityType: String, activityDate: Date, description: String, totalMiles: Double, visitId: Int) {
+        this.historyId = id
+        this.userId= userId
+        this.activityType = activityType
+        this.activityDate = activityDate
+        this.description = description
+        this.totalMiles = totalMiles
+        this.visitId = visitId
+    }
+
+    constructor(userId: Int, activityType: String, activityDate: Date, description: String, totalMiles: Double, visitId: Int) {
+        this.userId= userId
+        this.activityType = activityType
+        this.activityDate = activityDate
+        this.description = description
+        this.totalMiles = totalMiles
+        this.visitId = visitId
+    }
 }
