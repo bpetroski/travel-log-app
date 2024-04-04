@@ -24,33 +24,33 @@ class Visit {
     @ColumnInfo(name = "text")
     var text:String? = null
 
-    @ColumnInfo(name = "trip_id")
+    /*@ColumnInfo(name = "trip_id")
     var tripID:Int = 0
-
+*/
     constructor() {}
 
     constructor(id: Int, name: String, location: Int,
-                image: Int, text: String,
-                tripID: Int){
+                image: Int, text: String
+                /*tripID: Int*/){
 
         this.id = id
         this.name = name
         this.location = location
         this.image = image
         this.text = text
-        this.tripID = tripID
+        /*this.tripID = tripID*/
 
     }
 
     constructor(name: String, location: Int,
-                image: Int, text: String,
-                tripID: Int){
+                image: Int, text: String
+                /*tripID: Int*/){
 
         this.name = name
         this.location = location
         this.image = image
         this.text = text
-        this.tripID = tripID
+        /*this.tripID = tripID*/
 
     }
 

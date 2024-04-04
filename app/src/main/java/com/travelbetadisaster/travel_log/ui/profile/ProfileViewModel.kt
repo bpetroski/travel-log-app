@@ -41,4 +41,20 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         repository.sortHistoryDesc()
     }
 
+    fun setNewName(toString: Any) {
+
+    }
+
+    fun setNewHomeTown(toInt: Any) {
+
+    }
+
+    fun setNewDescription(toString: Any) {
+
+    }
+
+    fun updateUserProfile() {
+        TODO("Not yet implemented")
+    }
+
 }
