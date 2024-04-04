@@ -50,23 +50,21 @@ class JournalRepository(application: Application) {
     fun findVisit(name: String) {
         coroutineScope.launch(Dispatchers.Main) { searchResults.value = asyncFindVisit(name)}
     }
-
-    // TODO: check if the dao method existing resolves the async error
     private suspend fun asyncFindVisit(name: String): List<Visit>? =
         coroutineScope.async(Dispatchers.IO) { return@async visitDao?.findVisit(name) }.await()
 
     fun sortVisitAsc() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitAsc() }
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitAsc()!! }
     }
     private suspend fun asyncSortVisitAsc(): List<Visit>? = coroutineScope.async(Dispatchers.IO) {
         return@async visitDao?.sortVisitAsc() }.await()
     fun sortVisitDesc() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitDesc() }
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitDesc()!! }
     }
     private suspend fun asyncSortVisitDesc(): List<Visit>? = coroutineScope.async(Dispatchers.IO) {
         return@async visitDao?.sortVisitDesc() }.await()
     fun sortVisitByLocation() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitByLocation() }
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortVisitByLocation()!! }
     }
     private suspend fun asyncSortVisitByLocation(): List<Visit>? = coroutineScope.async(Dispatchers.IO) {
         return@async visitDao?.sortVisitByLocation() }.await()
