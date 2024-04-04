@@ -31,4 +31,6 @@
     <string name="asc">Sort asc</string>
     <string name="desc">Sort Desc</string>
     <string name="addBLentry">New Entry</string>
+    <string name="journal_entry">Journal Entry</string>
+    <string name="show_location">Show Location</string>
 </resources>
