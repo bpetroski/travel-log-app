@@ -34,10 +34,11 @@ class JournalEntryFragment : Fragment() {
     }
 
     private fun setupListeners() {
+/*
         binding.btnSave.setOnClickListener {
             saveEntry()
         }
-
+*/
         binding.btnEdit.setOnClickListener {
             enableEditing()
         }
@@ -50,7 +51,7 @@ class JournalEntryFragment : Fragment() {
     }
 
     private fun saveEntry() {
-        val entry = "..."
+        val entry = binding.journalDescription.text
         viewModel.saveVisit(entry)
     }
 
