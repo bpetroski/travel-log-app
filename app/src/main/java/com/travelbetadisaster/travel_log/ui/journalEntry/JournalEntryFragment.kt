@@ -1,32 +1,70 @@
 package com.travelbetadisaster.travel_log.ui.journalEntry
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.travelbetadisaster.travel_log.R
+import androidx.lifecycle.ViewModelProvider
+import com.travelbetadisaster.travel_log.databinding.FragmentJournalEntryBinding
 
 class JournalEntryFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = JournalEntryFragment()
-    }
+    private var _binding: FragmentJournalEntryBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var viewModel: JournalEntryViewModel
+    private var entryId: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_journal_entry, container, false)
+    ): View {
+        _binding = FragmentJournalEntryBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[JournalEntryViewModel::class.java]
+
+        // Assuming ID as a fragment
+        arguments?.let {
+            entryId = it.getInt("entryId")
+        }
+
+        setupListeners()
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(JournalEntryViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun setupListeners() {
+/*
+        binding.btnSave.setOnClickListener {
+            saveEntry()
+        }
+*/
+        binding.btnEdit.setOnClickListener {
+            enableEditing()
+        }
+
+        binding.btnDelete.setOnClickListener {
+            entryId?.let { id ->
+                deleteEntry(id)
+            }
+        }
     }
 
+    private fun saveEntry() {
+        val entry = binding.journalDescription.text
+        viewModel.saveVisit(entry)
+    }
+
+    private fun enableEditing() {
+
+    }
+
+    private fun deleteEntry(id: Int) {
+        viewModel.deleteVisit(id)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

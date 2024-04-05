@@ -4,33 +4,32 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.travelbetadisaster.travel_log.database.tables.BucketList
+import com.travelbetadisaster.travel_log.database.tables.BucketListEntry
 
 @Dao
 interface BucketListDao {
     @Insert
-    fun insertEntry(bucketListEntry: BucketList)
+    fun insertEntry(bucketListEntryEntry: BucketListEntry)
 
     @Update
-    fun updateEntry(bucketListEntry: BucketList)
+    fun updateEntry(bucketListEntryEntry: BucketListEntry)
 
     @Delete
-    fun deleteEntry(bucketListEntry: BucketList)
+    fun deleteEntry(bucketListEntryEntry: BucketListEntry)
 
     @Query("SELECT * FROM bucketlist_entries")
-    fun getAllEntries(): List<BucketList>
+    fun getAllEntries(): List<BucketListEntry>
 
     @Query("SELECT * FROM bucketlist_entries WHERE id = :id")
-    fun getEntry(id: Int): BucketList
+    fun getEntry(id: Int): BucketListEntry
 
-    @Query("SELECT * FROM bucketlist_entries WHERE entry LIKE :term")
-    fun findEntry(term: String): List<BucketList>
+    @Query("SELECT * FROM bucketlist_entries WHERE title LIKE :term")
+    fun findEntry(term: String): List<BucketListEntry>
 
-    @Query("SELECT * FROM bucketlist_entries ORDER BY entry ASC")
-    fun sortEntryAsc(): List<BucketList>
+    @Query("SELECT * FROM bucketlist_entries ORDER BY title ASC")
+    fun sortEntryAsc(): List<BucketListEntry>
 
-    @Query("SELECT * FROM bucketlist_entries ORDER BY entry DESC")
-    fun sortEntryDesc(): List<BucketList>
-}
+    @Query("SELECT * FROM bucketlist_entries ORDER BY title DESC")
+    fun sortEntryDesc(): List<BucketListEntry>
 
 }

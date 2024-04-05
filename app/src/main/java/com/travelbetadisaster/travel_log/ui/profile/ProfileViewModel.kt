@@ -2,7 +2,6 @@ package com.travelbetadisaster.travel_log.ui.profile
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import com.travelbetadisaster.travel_log.database.repositories.ProfileRepository
 import com.travelbetadisaster.travel_log.database.tables.User
 import com.travelbetadisaster.travel_log.database.tables.UserHistory
@@ -24,7 +23,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     }
 
     fun getAllHistory() {
-        repository.getAllHistory
+        repository.getAllHistory()
     }
 
     fun deleteHistory(id:Int) {
