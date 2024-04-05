@@ -10,7 +10,7 @@ import com.travelbetadisaster.travel_log.database.tables.UserHistory
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: ProfileRepository = ProfileRepository(application)
-    val user:User= repository.getUser
+    val user:User= repository.getUser()
 
     fun insertUser(newUser: User) {
         repository.insertUser(newUser)
