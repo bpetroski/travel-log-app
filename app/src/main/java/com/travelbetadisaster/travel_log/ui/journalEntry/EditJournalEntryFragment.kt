@@ -39,6 +39,7 @@ class EditJournalEntryFragment : Fragment() {
         }
     }
 
+    //Todo should also grab the name, locationID, and imageId before constructing a visit to pass to the method
     private fun saveEntry() {
         val entry = binding.journalDescription.text // need to format this as a "Visit" with a Visit constructor
         viewModel.saveVisit(entry)

@@ -27,4 +27,5 @@ class UserHistory {
 
     @ColumnInfo(name = "visitId")
     val visitId: Int = 0
+
 }
