@@ -24,10 +24,12 @@
         android:layout_marginHorizontal="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/journalTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/journalTitle"
-            android:hint="@string/title"/>
+            android:hint="@string/title"
+            android:textColorHint="#616161"
+            tools:ignore="VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>
 
 <!--  Date Time Block  -->
@@ -50,9 +52,12 @@
                     android:id="@+id/journalEntryDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autofillHints=""
                     android:ems="10"
                     android:hint="@string/date"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    android:textColorHint="#616161"
+                    tools:ignore="VisualLintTextFieldSize" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,13 +66,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginStart="10dp">
+
                 <EditText
                     android:id="@+id/journalEntryTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/time"
-                    android:inputType="time" />
+                    android:inputType="time"
+                    android:textColorHint="#616161"
+                    android:autofillHints=""
+                    tools:ignore="VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -105,10 +114,12 @@
                 android:layout_weight="9">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/journalEntryLocation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/journalEntryLocation"
-                    android:hint="@string/location"/>
+                    android:hint="@string/location"
+                    android:textColorHint="#616161"
+                    tools:ignore="VisualLintTextFieldSize" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -128,9 +139,11 @@
             android:layout_weight="1"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine"
             android:hint="@string/description"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:textColorHint="#616161"
+            tools:ignore="VisualLintTextFieldSize" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -33,4 +33,11 @@
     <string name="addBLentry">New Entry</string>
     <string name="journal_entry">Journal Entry</string>
     <string name="show_location">Show Location</string>
+    <string name="cancel">Cancel</string>
+    <string name="bio">Bio</string>
+    <string name="hometown">HomeTown</string>
+    <string name="name">Name</string>
+    <string name="todo">TODO</string>
+    <string name="enter_bio">Enter bio...</string>
+    <string name="enter_name">Enter Name</string>
 </resources>
