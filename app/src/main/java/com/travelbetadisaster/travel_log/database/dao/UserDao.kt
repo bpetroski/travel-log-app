@@ -14,6 +14,6 @@ interface UserDao {
     fun insertUser(newUser: User)
     @Update
     fun updateUser(user: User)
-    @Query("SELECT * from User WHERE UserID = :id")
+    @Query("SELECT * from users WHERE UserID = :id")
     fun getUser(id: Int): User
 }
