@@ -7,28 +7,74 @@
     tools:context=".ui.journalEntry.JournalEntryFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/journal_entry"
-        android:textSize="30sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        style="@style/TextAppearance.AppCompat.Title"/>
+        android:background="@color/design_default_color_primary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/design_default_color_on_primary"
+            android:text="@string/journal_entry"
+            android:textSize="30sp"
+            style="@style/TextAppearance.AppCompat.Title"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:id="@+id/btnEdit"
+            android:contentDescription="@string/edit"
+            android:src="@drawable/edit_journal"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:tint="@color/design_default_color_on_primary" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:id="@+id/btnDelete"
+            android:contentDescription="@string/delete"
+            android:src="@drawable/baseline_delete_24"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:tint="@color/design_default_color_on_primary" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:id="@+id/btnClose"
+            android:contentDescription="@string/close_journal"
+            android:src="?attr/actionModeCloseDrawable"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:tint="@color/design_default_color_on_primary" />
+
+    </LinearLayout>
 
 <!--title block-->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
             android:id="@+id/journalTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/title"
-            android:textColorHint="#616161"
+            android:textSize="24sp"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:text="@string/placeholder_title"
             tools:ignore="VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,142 +84,43 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginVertical="10dp"
             android:layout_marginHorizontal="20dp"
             android:baselineAligned="false">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <EditText
-                    android:id="@+id/journalEntryDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:hint="@string/date"
-                    android:inputType="date"
-                    android:textColorHint="#616161"
-                    tools:ignore="VisualLintTextFieldSize" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:id="@+id/journalEntryDateTime"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="10dp">
+                android:layout_height="wrap_content"
+                android:text="@string/default_date"
+                android:textSize="12sp"
+                android:textColorHint="#616161"
+                tools:ignore="VisualLintTextFieldSize" />
 
-                <EditText
-                    android:id="@+id/journalEntryTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/time"
-                    android:inputType="time"
-                    android:textColorHint="#616161"
-                    android:autofillHints=""
-                    tools:ignore="VisualLintTextFieldSize" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@id/journalEntryLocation"
+                android:text="@string/default_location"
+                android:textSize="14sp"/>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="20dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginHorizontal="20dp"
+        android:id="@+id/journalEntryImage"
+        android:src="@drawable/placeholder_image"
+        android:contentDescription="@string/journal_entry_image"/>
 
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:id="@+id/setLocation"-->
-<!--                android:contentDescription="@string/set_location"-->
-<!--                app:icon="@drawable/baseline_pin_drop_24"-->
-<!--                app:iconPadding="0dp"-->
-<!--                app:iconGravity="textEnd">-->
-
-<!--            </com.google.android.material.button.MaterialButton>-->
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/showLocation"
-                android:contentDescription="@string/show_location"
-                android:backgroundTint="@color/design_default_color_primary"
-                android:src="@drawable/baseline_my_location_24"
-                app:tint="@color/design_default_color_on_primary">
-            </ImageButton>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="9">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/journalEntryLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/location"
-                    android:textColorHint="#616161"
-                    tools:ignore="VisualLintTextFieldSize" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-
-
-    <com.google.android.material.textfield.TextInputLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="20dp">
-
-        <EditText
-            android:id="@+id/journalDescription"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/description"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            android:textColorHint="#616161"
-            tools:ignore="VisualLintTextFieldSize" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_marginHorizontal="20dp"-->
-<!--        android:layout_marginVertical="10dp">-->
-
-<!--        <ImageButton-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="2"-->
-<!--            android:backgroundTint="@color/design_default_color_primary"-->
-<!--            android:contentDescription="@string/add_picture"-->
-<!--            android:src="@drawable/ic_menu_camera"-->
-<!--            app:tint="@color/design_default_color_on_primary">-->
-
-<!--        </ImageButton>-->
-
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/btnSave"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_marginHorizontal="20dp"-->
-<!--            android:text="@string/save"/>-->
-
-<!--    </LinearLayout>-->
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/placeholder_description"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="13sp"
+        />
 
 </LinearLayout>
