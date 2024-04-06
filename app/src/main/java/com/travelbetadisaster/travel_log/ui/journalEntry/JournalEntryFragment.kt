@@ -34,10 +34,12 @@ class JournalEntryFragment : Fragment() {
     }
 
     private fun setupListeners() {
+/* //this button should be in the edit fragment
         binding.btnSave.setOnClickListener {
             saveEntry()
         }
-
+*/
+        //todo set button names correctly
         binding.btnEdit.setOnClickListener {
             enableEditing()
         }
@@ -49,13 +51,14 @@ class JournalEntryFragment : Fragment() {
         }
     }
 
-    private fun saveEntry() {
-        val entry = "..."
+    //this method exists in the edit journal entry fragment
+    /*private fun saveEntry() {
+        val entry = binding.journalDescription.text
         viewModel.saveVisit(entry)
-    }
+    }*/
 
     private fun enableEditing() {
-
+        //Todo this method should navigate to the edit fragment
     }
 
     private fun deleteEntry(id: Int) {

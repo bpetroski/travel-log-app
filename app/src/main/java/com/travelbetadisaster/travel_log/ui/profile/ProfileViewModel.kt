@@ -9,7 +9,7 @@ import com.travelbetadisaster.travel_log.database.tables.UserHistory
 class ProfileViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: ProfileRepository = ProfileRepository(application)
-    val user:User? = repository.user
+    val user:User= repository.getUser()
 
     fun insertUser(newUser: User) {
         repository.insertUser(newUser)
@@ -39,6 +39,22 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     fun sortHistoryDesc() {
         repository.sortHistoryDesc()
+    }
+
+    fun setNewName(toString: Any) {
+
+    }
+
+    fun setNewHomeTown(toInt: Any) {
+
+    }
+
+    fun setNewDescription(toString: Any) {
+
+    }
+
+    fun updateUserProfile() {
+        TODO("Not yet implemented")
     }
 
 }

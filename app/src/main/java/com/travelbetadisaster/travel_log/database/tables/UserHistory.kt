@@ -26,6 +26,7 @@ class UserHistory {
     var totalMiles: Double = 0.0
 
     @ColumnInfo(name = "visitId")
+
     var visitId: Int = 0
 
     constructor() {}
@@ -48,4 +49,8 @@ class UserHistory {
         this.totalMiles = totalMiles
         this.visitId = visitId
     }
+
+    val visitId: Int = 0
+
+
 }
