@@ -48,4 +48,6 @@
     <string name="default_date">01/01/1970 12:00am</string>
     <string name="default_location">Michigan, United States of America</string>
     <string name="placeholder_title">Placeholder Title</string>
+    <string name="journal_list">Journal List</string>
+    <string name="bucket_list">Bucket List</string>
 </resources>
