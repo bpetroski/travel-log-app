@@ -17,7 +17,7 @@ class UserHistory {
     var activityType: String? = null
 
     @ColumnInfo(name = "activityDate")
-    var activityDate: Date? = null
+    var activityDate: Date? = null // TODO("Android can't figure out how to save this field into the database, we need to do some kind of type conversion")
 
     @ColumnInfo(name = "description")
     var description: String? = null
