@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
       
         homeViewModel.text.observe(viewLifecycleOwner) {
-            binding.textHome.text = it
+            binding.textHome.text = it //todo correct reference to text
         }
 
         val buttonToJournalList = view.findViewById<Button>(R.id.button_to_journal_list)
@@ -43,6 +43,7 @@ class HomeFragment : Fragment() {
         return binding.root
 
     }
+    //todo correct button names
     // Set Up Listeners for on click buttons to navigate
     private fun setupListeners() {
         buttonToJournalList.setOnClickListener {

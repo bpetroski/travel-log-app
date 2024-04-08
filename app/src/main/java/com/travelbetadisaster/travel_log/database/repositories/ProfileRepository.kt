@@ -20,7 +20,6 @@ class ProfileRepository(application: Application) {
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     init {
-        // "database" as placeholder TODO("update placeholder for database")
         val db: TravelRoomDataBase? =
             TravelRoomDataBase.getDatabase(application)
         // init vars

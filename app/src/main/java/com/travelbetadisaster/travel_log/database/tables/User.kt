@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "users")
-
 class User {
 
     @PrimaryKey(autoGenerate = true)
@@ -30,7 +29,7 @@ class User {
     @ColumnInfo(name = "password")
     var password:String? = null
 
-    constructor() {}
+    constructor()
 
     constructor(id: Int, name: String, profilePic: String,
                 bio: String, homeLocation: String,

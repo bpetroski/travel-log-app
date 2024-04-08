@@ -32,4 +32,6 @@ interface VisitDao {
 
     @Query("SELECT * FROM visits ORDER BY location_id")
     fun sortVisitByLocation(): List<Visit>
+    @Query("SELECT * FROM visits WHERE VisitID = :id")
+    fun getVisit(id: Int): Visit
 }
