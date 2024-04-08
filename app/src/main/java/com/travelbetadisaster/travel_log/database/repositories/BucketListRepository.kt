@@ -12,19 +12,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class BucketListRepository(application: Application) {
-    private var bucketListDao: BucketListDao?
+class BucketListRepository(private val bucketListDao: BucketListDao) {
+//  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
     private var entry: BucketListEntry? = null
-    val searchResults = MutableLiveData<List<BucketListEntry>?>()
-    private var allEntries: LiveData<List<BucketListEntry>>?
+    private val searchResults = MutableLiveData<List<BucketListEntry>?>()
+    private var allEntries: LiveData<List<BucketListEntry>>? = bucketListDao?.getAllEntries()
     private var sortedList = MutableLiveData<List<BucketListEntry>?>()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
-
-    init {
-        val db: TravelRoomDataBase? = TravelRoomDataBase.getDatabase(application)
-        bucketListDao = db?.bucketListDao()
-        allEntries = bucketListDao?.getAllEntries()
-    }
 
     fun insertEntry(newEntry: BucketListEntry) {
         coroutineScope.launch(Dispatchers.IO) { asyncInsertEntry(newEntry) }
