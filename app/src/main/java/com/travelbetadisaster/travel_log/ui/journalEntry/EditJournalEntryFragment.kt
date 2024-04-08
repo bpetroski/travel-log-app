@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.travelbetadisaster.travel_log.database.tables.Visit
 import com.travelbetadisaster.travel_log.databinding.FragmentEditJournalEntryBinding
 
-class EditJournalEntryFragment : Fragment() {
+class EditJournalEntryFragment : BottomSheetDialogFragment() {
 
     private var _binding: FragmentEditJournalEntryBinding? = null
     private val binding get() = _binding!!
@@ -39,9 +41,8 @@ class EditJournalEntryFragment : Fragment() {
         }
     }
 
-    //todo should also grab the name, locationID, and imageId before constructing a visit to pass to the method
     private fun saveEntry() {
-        val entry = binding.journalDescription.text //todo need to format this as a "Visit" with a Visit constructor
+        val entry = Visit() //todo should also grab the name, locationID, and imageId before constructing a visit to pass to the method
         viewModel.saveVisit(entry)
     }
 
