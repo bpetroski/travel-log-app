@@ -10,6 +10,16 @@
             android:icon="@drawable/baseline_home_24"
             />
         <item
+            android:id="@+id/nav_journal_list"
+            android:title="@string/journal_list"
+            android:icon="@drawable/baseline_format_list_bulleted_24"
+            />
+        <item
+            android:id="@+id/nav_bucket_list"
+            android:title="@string/bucket_list"
+            android:icon="@drawable/baseline_checklist_rtl_24"
+            />
+        <item
             android:id="@+id/nav_maps"
             android:icon="@android:drawable/ic_dialog_map"
             android:title="@string/menu_maps" />
