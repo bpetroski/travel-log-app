@@ -36,6 +36,8 @@
         android:autofillHints=""
         tools:ignore="VisualLintTextFieldSize" />
 
+    <!--todo fix imageView-->
+
     <ImageView
         android:id="@+id/imageViewProfile"
         android:layout_width="wrap_content"

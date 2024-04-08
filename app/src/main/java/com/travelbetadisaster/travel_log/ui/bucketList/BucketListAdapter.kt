@@ -57,6 +57,8 @@ class BucketListAdapter(private val entryListener: OnEntryClickListener,
         var title: TextView
         var description: TextView
         var completed: ImageView = itemView.findViewById(R.id.check_mark)
+        //todo: find a checkmark resource
+
 
         init {
             title = itemView.findViewById(R.id.bucketListTitle)

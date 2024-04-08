@@ -58,7 +58,7 @@ class JournalEntryFragment : Fragment() {
     }*/
 
     private fun enableEditing() {
-        //Todo this method should navigate to the edit fragment
+        //todo this method should navigate to the edit fragment
     }
 
     private fun deleteEntry(id: Int) {

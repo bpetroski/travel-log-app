@@ -36,7 +36,7 @@ class ProfileFragment : Fragment() {
         val view = binding.root
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        //todo set text view names correctly
+        TODO("set text view names correctly")
         textViewName = view.findViewById(R.id.textViewName)
         textViewHomeTown = view.findViewById(R.id.textViewHomeTown)
         textViewDescription = view.findViewById(R.id.textViewDescription)
@@ -47,11 +47,11 @@ class ProfileFragment : Fragment() {
     }
 
     private fun listenerSetup() {
-        //todo set button names correctly
+        TODO("set button names correctly")
         binding.editButton.setOnClickListener { onEditClick() }
         binding.saveButton.setOnClickListener { onSaveClick() }
         binding.xButton.setOnClickListener { onXClick() }
-        /*binding.historyButton.setOnClickListener { onHistoryClick() }*/ //todo if history is implemented in time re-enable this
+        /*binding.historyButton.setOnClickListener { onHistoryClick() }*/ TODO( "if history is implemented in time re-enable this")
     }
 
     private fun updateUserProfileUI(user: User) {
@@ -61,14 +61,13 @@ class ProfileFragment : Fragment() {
     }
 
     private fun onEditClick() {
-        //todo navigate to the edit profile fragment
-        // Handle edit button click
+        TODO(" navigate to the edit profile fragment")
 
     }
 
 
     private fun onXClick() {
-        // Handle X button click
+        //todo navigate back to home fragment
 
     }
 

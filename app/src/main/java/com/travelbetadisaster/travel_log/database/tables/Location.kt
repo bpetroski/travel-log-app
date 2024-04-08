@@ -23,7 +23,7 @@ class Location {
     @ColumnInfo(name = "longitude")
     var longitude: String? = null
 
-    constructor() {}
+    constructor()
 
     constructor(
         id: Int, name: String, description: String,

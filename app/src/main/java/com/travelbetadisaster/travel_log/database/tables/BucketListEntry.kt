@@ -16,4 +16,20 @@ class BucketListEntry {
 
     @ColumnInfo(name = "completed")
     var isCompleted: Boolean = false
+
+
+    constructor(id: Int, title: String?, description: String?, isCompleted: Boolean) {
+        this.id = id
+        this.title = title
+        this.description = description
+        this.isCompleted = isCompleted
+    }
+
+    constructor(title: String?, description: String?, isCompleted: Boolean) {
+        this.title = title
+        this.description = description
+        this.isCompleted = isCompleted
+    }
+
+    constructor()
 }

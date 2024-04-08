@@ -13,9 +13,10 @@ import kotlinx.coroutines.launch
 
 class JournalRepository(application: Application) {
 
+    private var visit: Visit? = null
     private var visitDao: VisitDao?
     var allVisits: LiveData<List<Visit>>?
-    val searchResults = MutableLiveData<List<Visit>?>()
+    val searchResults = MutableLiveData<List<Visit>>()
     val byLocation = MutableLiveData<List<Visit>>()
     val sortedList = MutableLiveData<List<Visit>>()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
@@ -24,6 +25,14 @@ class JournalRepository(application: Application) {
         val db: TravelRoomDataBase? = TravelRoomDataBase.getDatabase(application)
         visitDao = db?.visitDao()
         allVisits = visitDao?.getAllVisit()
+    }
+
+    fun getVisit(id: Int)  {
+        coroutineScope.launch(Dispatchers.IO) { visit = asyncGetVisit(id) }
+    }
+
+    private fun asyncGetVisit(id: Int) : Visit {
+        return visitDao?.getVisit(id)!!
     }
 
     fun insertVisit(newVisit: Visit) {
