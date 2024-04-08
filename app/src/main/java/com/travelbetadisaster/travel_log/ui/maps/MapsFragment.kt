@@ -1,6 +1,5 @@
 package com.travelbetadisaster.travel_log.ui.maps
 
-import MapsViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +13,10 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.model.MarkerOptions
 import com.travelbetadisaster.travel_log.R
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.tasks.Task
@@ -54,7 +53,7 @@ class MapsFragment : Fragment() {
         try {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-                val locationResult: Task<Location> = fusedLocationProviderClient.lastLocation
+                val locationResult: Task<Location> = fusedLocationProviderClient.lastLocation //todo missing permissions issue
                 locationResult.addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         val lastKnownLocation = task.result

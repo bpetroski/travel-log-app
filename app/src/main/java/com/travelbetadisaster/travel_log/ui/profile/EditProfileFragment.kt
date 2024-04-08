@@ -46,6 +46,7 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun onXClick() {
+        //todo return to profile fragment
     }
 
     override fun onDestroyView() {
