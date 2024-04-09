@@ -1,11 +1,13 @@
 package com.travelbetadisaster.travel_log.ui.journalList
 
 import android.annotation.SuppressLint
+import android.app.PendingIntent.getActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.BucketListEntry
@@ -56,13 +58,14 @@ class BucketListAdapter(private val entryListener: OnEntryClickListener,
     inner class BucketListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title: TextView
         var description: TextView
-        var completed: ImageView = itemView.findViewById(R.id.check_mark)
+        var completed: ImageView = itemView.findViewById(R.id.completed)
         //todo: find a checkmark resource
 
 
         init {
             title = itemView.findViewById(R.id.bucketListTitle)
             description = itemView.findViewById(R.id.bucketListDescription)
+            completed.setImageResource(R.drawable.baseline_check_box_24)
         }
     }
 

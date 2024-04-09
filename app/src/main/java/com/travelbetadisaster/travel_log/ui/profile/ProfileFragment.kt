@@ -1,7 +1,6 @@
 package com.travelbetadisaster.travel_log.ui.profile
 
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.Observer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,10 +35,9 @@ class ProfileFragment : Fragment() {
         val view = binding.root
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        TODO("set text view names correctly")
-        textViewName = view.findViewById(R.id.textViewName)
-        textViewHomeTown = view.findViewById(R.id.textViewHomeTown)
-        textViewDescription = view.findViewById(R.id.textViewDescription)
+        textViewName = view.findViewById(R.id.name)
+        textViewHomeTown = view.findViewById(R.id.hometown)
+        textViewDescription = view.findViewById(R.id.bioContainer)
 
         listenerSetup()
 
@@ -48,9 +46,9 @@ class ProfileFragment : Fragment() {
 
     private fun listenerSetup() {
         TODO("set button names correctly")
-        binding.editButton.setOnClickListener { onEditClick() }
-        binding.saveButton.setOnClickListener { onSaveClick() }
-        binding.xButton.setOnClickListener { onXClick() }
+        TODO("there are no buttons on fragment")
+        /*binding.editButton.setOnClickListener { onEditClick() }
+        binding.xButton.setOnClickListener { onXClick() }*/
         /*binding.historyButton.setOnClickListener { onHistoryClick() }*/ TODO( "if history is implemented in time re-enable this")
     }
 

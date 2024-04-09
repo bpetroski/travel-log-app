@@ -4,15 +4,15 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.google.android.gms.maps.model.LatLng
 import com.travelbetadisaster.travel_log.database.dao.SharedPreferencesMapDao
 import com.travelbetadisaster.travel_log.database.repositories.JournalRepository
 import com.travelbetadisaster.travel_log.database.repositories.MapRepository
 import com.travelbetadisaster.travel_log.database.tables.Visit
 
-class MapsViewModel(application: Application) : AndroidViewModel(application) {
+class MapsViewModel(private val journalRepository: JournalRepository, application: Application) : ViewModel() {
 
-    private val journalRepository: JournalRepository = JournalRepository(application)
     val allEntries: LiveData<List<Visit>>? = journalRepository.allVisits
 
     private val mapRepository: MapRepository

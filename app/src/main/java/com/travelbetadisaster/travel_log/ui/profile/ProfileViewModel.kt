@@ -2,13 +2,14 @@ package com.travelbetadisaster.travel_log.ui.profile
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import com.travelbetadisaster.travel_log.database.repositories.ProfileRepository
 import com.travelbetadisaster.travel_log.database.tables.User
 import com.travelbetadisaster.travel_log.database.tables.UserHistory
 
-class ProfileViewModel(application: Application) : AndroidViewModel(application) {
+class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() {
 
-    private val repository: ProfileRepository = ProfileRepository(application)
+    /*private val repository: ProfileRepository = ProfileRepository(application)*/
     val user: User? = repository.user
 
     fun insertUser(newUser: User) {
@@ -26,7 +27,8 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         repository.getAllHistory()
     }
 
-    fun deleteHistory(id:Int) {
+    //TODO renable when and if history is implemented (low priority)
+    /*fun deleteHistory(id:Int) {
         repository.deleteHistory(id)
     }
 
@@ -39,7 +41,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
 
     fun sortHistoryDesc() {
         repository.sortHistoryDesc()
-    }
+    }*/
 
     fun setNewName(toString: Any) {
         TODO("send new name to user object")
