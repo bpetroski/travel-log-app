@@ -7,15 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import com.travelbetadisaster.travel_log.databinding.FragmentEditJournalEntryBinding
 
+
 class EditJournalEntryFragment : BottomSheetDialogFragment() {
 
+    //TODO create listeners for loacation button and photo button
     private var _binding: FragmentEditJournalEntryBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: JournalEntryViewModel
+    private val viewModel: JournalEntryViewModel
+        get() = (activity as MainActivity).journalEntryViewModel
     private var entryId: Int? = null
 
     override fun onCreateView(
@@ -23,7 +27,6 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEditJournalEntryBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[JournalEntryViewModel::class.java]
 
         // Assuming ID as a fragment
         arguments?.let {

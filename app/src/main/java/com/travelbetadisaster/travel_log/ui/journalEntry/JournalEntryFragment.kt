@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalEntryBinding
 
 class JournalEntryFragment : Fragment() {
 
     private var _binding: FragmentJournalEntryBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var viewModel: JournalEntryViewModel
+    private val viewModel: JournalEntryViewModel get() = (activity as MainActivity).journalEntryViewModel
     private var entryId: Int? = null
 
     override fun onCreateView(
@@ -21,7 +21,6 @@ class JournalEntryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentJournalEntryBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[JournalEntryViewModel::class.java]
 
         // Assuming ID as a fragment
         arguments?.let {

@@ -15,18 +15,35 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.travelbetadisaster.travel_log.database.TravelRoomDataBase
 import com.travelbetadisaster.travel_log.databinding.ActivityMainBinding
+import com.travelbetadisaster.travel_log.ui.bucketList.BucketListModelFactory
+import com.travelbetadisaster.travel_log.ui.bucketList.BucketListViewModel
 import com.travelbetadisaster.travel_log.ui.journalEntry.EditJournalEntryFragment
 import com.travelbetadisaster.travel_log.ui.journalEntry.JournalEntryViewModel
 import com.travelbetadisaster.travel_log.ui.journalEntry.JournalItemModelFactory
+import com.travelbetadisaster.travel_log.ui.journalList.JournalListModelFactory
+import com.travelbetadisaster.travel_log.ui.journalList.JournalListViewModel
+import com.travelbetadisaster.travel_log.ui.profile.ProfileModelFactory
+import com.travelbetadisaster.travel_log.ui.profile.ProfileViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    // messing around
-    private val journalEntryViewModel: JournalEntryViewModel by viewModels {
+    // not private so that they can be passed to the correct fragment
+    val journalEntryViewModel: JournalEntryViewModel by viewModels {
         JournalItemModelFactory((application as JournalApplication).journalRepository)
     }
+    val journalListViewModel: JournalListViewModel by viewModels {
+        JournalListModelFactory((application as JournalApplication).journalRepository,
+            (application as JournalApplication).locationRepository)
+    }
+    val bucketListViewModel: BucketListViewModel by viewModels {
+        BucketListModelFactory((application as JournalApplication).bucketListRepository)
+    }
+    val profileViewModel: ProfileViewModel by viewModels {
+        ProfileModelFactory((application as JournalApplication).profileRepository)
+    }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

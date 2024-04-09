@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.User
 import com.travelbetadisaster.travel_log.databinding.FragmentProfileBinding
@@ -17,8 +18,8 @@ class ProfileFragment : Fragment() {
     companion object {
         fun newInstance() = ProfileFragment()
     }
-
-    private lateinit var viewModel: ProfileViewModel
+    private val viewModel: ProfileViewModel
+        get() = (activity as MainActivity).profileViewModel
     private lateinit var textViewName: TextView
     private lateinit var textViewHomeTown: TextView
     private lateinit var textViewDescription: TextView
@@ -33,13 +34,13 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+
 
         textViewName = view.findViewById(R.id.name)
         textViewHomeTown = view.findViewById(R.id.hometown)
         textViewDescription = view.findViewById(R.id.bioContainer)
 
-        listenerSetup()
+        /*listenerSetup()*/
 
         return view
     }
