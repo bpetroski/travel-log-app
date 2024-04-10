@@ -10,6 +10,11 @@
             android:icon="@drawable/baseline_home_24"
             />
         <item
+            android:id="@+id/nav_profile"
+            android:title="@string/profile"
+            android:icon="@drawable/profilepic"
+            />
+        <item
             android:id="@+id/nav_journal_list"
             android:title="@string/journal_list"
             android:icon="@drawable/baseline_format_list_bulleted_24"
