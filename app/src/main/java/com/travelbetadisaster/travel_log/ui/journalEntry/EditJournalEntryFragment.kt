@@ -51,6 +51,7 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
         // todo Location constructor to pass location ID
         val entry = Visit(binding.journalTitle.text.toString(), 0, 0, binding.journalDescription.text.toString())
         viewModel.saveVisit(entry)
+        dismiss()
     }
 
     private fun enableEditing() {
