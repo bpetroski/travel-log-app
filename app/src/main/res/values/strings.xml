@@ -50,4 +50,8 @@
     <string name="placeholder_title">Placeholder Title</string>
     <string name="journal_list">Journal List</string>
     <string name="bucket_list">Bucket List</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="mainactivity">MainActivity</string>
+    <string name="profile">Profile</string>
+    <string name="app_version_number">v1.1</string>
 </resources>
