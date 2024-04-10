@@ -2,6 +2,7 @@ package com.travelbetadisaster.travel_log
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.ImageButton
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -13,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.travelbetadisaster.travel_log.database.TravelRoomDataBase
 import com.travelbetadisaster.travel_log.databinding.ActivityMainBinding
 import com.travelbetadisaster.travel_log.ui.bucketList.BucketListModelFactory
@@ -22,6 +24,7 @@ import com.travelbetadisaster.travel_log.ui.journalEntry.JournalEntryViewModel
 import com.travelbetadisaster.travel_log.ui.journalEntry.JournalItemModelFactory
 import com.travelbetadisaster.travel_log.ui.journalList.JournalListModelFactory
 import com.travelbetadisaster.travel_log.ui.journalList.JournalListViewModel
+import com.travelbetadisaster.travel_log.ui.profile.ProfileFragment
 import com.travelbetadisaster.travel_log.ui.profile.ProfileModelFactory
 import com.travelbetadisaster.travel_log.ui.profile.ProfileViewModel
 
@@ -54,23 +57,21 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-//        binding.appBarMain.newJournalEntry.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
-
-            binding.appBarMain.newJournalEntry.setOnClickListener {
-                EditJournalEntryFragment().show(supportFragmentManager, "New Journal Entry Tag")
-            }
+        binding.appBarMain.newJournalEntry.setOnClickListener {
+            EditJournalEntryFragment().show(supportFragmentManager, "New Journal Entry Tag")
+        }
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_maps
+               R.id.nav_home, R.id.nav_journal_list, R.id.nav_bucket_list, R.id.nav_maps
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
