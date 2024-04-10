@@ -17,7 +17,6 @@ abstract class TravelRoomDataBase: RoomDatabase() {
     abstract fun visitDao(): VisitDao
     abstract fun userDao(): UserDao
     abstract fun userHistoryDao(): UserHistoryDao
-    abstract fun VisitDao(): VisitDao
 
     companion object {
         //instance of the database

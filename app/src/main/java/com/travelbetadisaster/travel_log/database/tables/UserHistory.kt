@@ -17,7 +17,7 @@ class UserHistory {
     var activityType: String? = null
 
     @ColumnInfo(name = "activityDate")
-    var activityDate: Date? = null // TODO("Android can't figure out how to save this field into the database, we need to do some kind of type conversion")
+    var activityDate: String? = null //changed to string
 
     @ColumnInfo(name = "description")
     var description: String? = null
@@ -30,7 +30,7 @@ class UserHistory {
 
     constructor() {}
 
-    constructor(id: Int, userId: Int, activityType: String, activityDate: Date, description: String, totalMiles: Double, visitId: Int) {
+    constructor(id: Int, userId: Int, activityType: String, activityDate: String, description: String, totalMiles: Double, visitId: Int) {
         this.historyId = id
         this.userId= userId
         this.activityType = activityType
@@ -40,7 +40,7 @@ class UserHistory {
         this.visitId = visitId
     }
 
-    constructor(userId: Int, activityType: String, activityDate: Date, description: String, totalMiles: Double, visitId: Int) {
+    constructor(userId: Int, activityType: String, activityDate: String, description: String, totalMiles: Double, visitId: Int) {
         this.userId= userId
         this.activityType = activityType
         this.activityDate = activityDate

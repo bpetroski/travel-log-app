@@ -1,5 +1,6 @@
 package com.travelbetadisaster.travel_log.ui.journalList
 
+import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,13 +9,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.travelbetadisaster.travel_log.JournalApplication
+import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalListBinding
 
 
-class JournalListFragment : Fragment(), OnItemClickListener  {
+class JournalListFragment() : Fragment(), OnItemClickListener  {
 
     private var adapter: JournalListAdapter? = null
-    val viewModel: JournalListViewModel by viewModels()
+    private val viewModel: JournalListViewModel
+        get() = (activity as MainActivity).journalListViewModel
     private var _binding: FragmentJournalListBinding? = null
     private val binding get() = _binding!!
 

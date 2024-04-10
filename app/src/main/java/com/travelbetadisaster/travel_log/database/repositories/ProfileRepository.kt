@@ -56,7 +56,9 @@ class ProfileRepository(private val userDAO: UserDao, private val userHistoryDao
     private suspend fun asyncGetAllHistory(): LiveData<List<UserHistory>>?{
         return userHistoryDao?.getAllHistory()
     }
-    fun getHistory(id: Int){
+
+    //TODO renable when and if history is implemented (low priority)
+    /*fun getHistory(id: Int){
         coroutineScope.launch(Dispatchers.IO){
             asyncGetHistory(id)
         }
@@ -95,6 +97,6 @@ class ProfileRepository(private val userDAO: UserDao, private val userHistoryDao
     }
     private suspend fun asyncSortHistoryDesc(): List<UserHistory>?{
         return userHistoryDao?.sortHistoryDesc()
-    }
+    }*/
 
 }

@@ -15,10 +15,10 @@
             app:destination="@id/nav_maps" />
         <action
             android:id="@+id/action_nav_home_to_journalListFragment"
-            app:destination="@id/journalListFragment2" />
+            app:destination="@id/nav_journal_list" />
         <action
             android:id="@+id/action_nav_home_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/nav_profile" />
     </fragment>
 
 
@@ -28,13 +28,18 @@
         android:label="@string/menu_maps"
         tools:layout="@layout/fragment_maps" />
     <fragment
-        android:id="@+id/journalListFragment2"
+        android:id="@+id/nav_journal_list"
         android:name="com.travelbetadisaster.travel_log.ui.journalList.JournalListFragment"
         android:label="fragment_journal_list"
-        tools:layout="@layout/item_journal" />
+        tools:layout="@layout/fragment_journal_list" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/nav_profile"
         android:name="com.travelbetadisaster.travel_log.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_bucket_list"
+        android:name="com.travelbetadisaster.travel_log.ui.bucketList.BucketListFragment"
+        android:label="fragment_bucket_list"
+        tools:layout="@layout/fragment_bucket_list" />
 </navigation>

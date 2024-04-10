@@ -16,7 +16,7 @@
             android:layout_marginEnd="140dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/todo"
-            app:layout_constraintBottom_toTopOf="@+id/Hometown"
+            app:layout_constraintBottom_toTopOf="@+id/hometown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.905"
@@ -35,7 +35,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
-            android:id="@+id/Hometown"
+            android:id="@+id/hometown"
             android:layout_width="230dp"
             android:layout_height="57dp"
             android:layout_marginBottom="16dp"
