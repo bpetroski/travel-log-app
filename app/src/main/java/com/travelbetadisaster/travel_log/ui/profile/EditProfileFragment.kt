@@ -41,7 +41,7 @@ class EditProfileFragment : Fragment() {
         viewModel.setNewName(binding.editTextName.text.toString())
         viewModel.setNewHomeTown(binding.editTextHomeTown.text.toString().toInt())
         viewModel.setNewDescription(binding.editTextDescription.text.toString())
-        viewModel.updateUserProfile()
+        viewModel.updateUser()
         Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_SHORT).show()
     }
 

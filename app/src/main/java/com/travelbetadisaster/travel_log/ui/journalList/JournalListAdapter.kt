@@ -31,7 +31,10 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
     override fun onBindViewHolder(holder: JournalViewHolder, position: Int) {
         journalList.let {
             holder.visitTitle.text = it!![position].name
-            holder.visitThumbnail.setImageResource(it[position].image!!) //will probably need some kind of find by id
+            if (it[position].image != 0) {
+                holder.visitThumbnail.setImageResource(it[position].image!!)
+            } else
+                holder.visitThumbnail.setImageResource(R.drawable.placeholder_image)
         }
         holder.itemView.setOnClickListener{
             journalList.let { listener.onItemClick(it!![position].id) }
