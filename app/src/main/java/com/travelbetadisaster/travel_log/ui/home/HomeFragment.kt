@@ -28,15 +28,14 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
       
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            binding.textHome.text = it //todo correct reference to text
-        }
+        /*homeViewModel.text.observe(viewLifecycleOwner) {
+            binding.textView2.text = it //todo correct reference to text
+        }*///why are we observing this text?
 
-        val buttonToJournalList = view.findViewById<Button>(R.id.button_to_journal_list)
+        /*val buttonToJournalList = view.findViewById<Button>(R.id.button_to_journal_list)
         val buttonToProfile = view.findViewById<Button>(R.id.button)
-        val buttonToMaps = view.findViewById<Button>(R.id.navigateToMaps)
+        val buttonToMaps = view.findViewById<Button>(R.id.navigateToMaps)*/
 
         setupListeners()
 
@@ -46,15 +45,15 @@ class HomeFragment : Fragment() {
     //todo correct button names
     // Set Up Listeners for on click buttons to navigate
     private fun setupListeners() {
-        buttonToJournalList.setOnClickListener {
+        binding.buttonToJournalList.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_journalListFragment)
         }
 
-        buttonToProfile.setOnClickListener {
+        binding.buttonToProfile.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_profileFragment)
         }
 
-        buttonToMaps.setOnClickListener {
+        binding.buttonToMaps.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_nav_maps)
         }
 

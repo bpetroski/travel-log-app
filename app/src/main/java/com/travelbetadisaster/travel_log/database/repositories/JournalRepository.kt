@@ -11,21 +11,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class JournalRepository(application: Application) {
-
+class JournalRepository(private val visitDao: VisitDao) {
+//  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
     private var visit: Visit? = null
-    private var visitDao: VisitDao?
-    var allVisits: LiveData<List<Visit>>?
+    var allVisits: LiveData<List<Visit>>? = visitDao?.getAllVisit()
     val searchResults = MutableLiveData<List<Visit>>()
     val byLocation = MutableLiveData<List<Visit>>()
     val sortedList = MutableLiveData<List<Visit>>()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
-
-    init {
-        val db: TravelRoomDataBase? = TravelRoomDataBase.getDatabase(application)
-        visitDao = db?.visitDao()
-        allVisits = visitDao?.getAllVisit()
-    }
 
     fun getVisit(id: Int)  {
         coroutineScope.launch(Dispatchers.IO) { visit = asyncGetVisit(id) }
@@ -57,7 +50,7 @@ class JournalRepository(application: Application) {
     }
 
     fun findVisit(name: String) {
-        coroutineScope.launch(Dispatchers.Main) { searchResults.value = asyncFindVisit(name)}
+        coroutineScope.launch(Dispatchers.Main) { searchResults.value = asyncFindVisit(name)!!}
     }
     private suspend fun asyncFindVisit(name: String): List<Visit>? =
         coroutineScope.async(Dispatchers.IO) { return@async visitDao?.findVisit(name) }.await()

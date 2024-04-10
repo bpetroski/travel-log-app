@@ -12,19 +12,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class BucketListRepository(application: Application) {
-    private var bucketListDao: BucketListDao?
+class BucketListRepository(private val bucketListDao: BucketListDao) {
+//  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
     private var entry: BucketListEntry? = null
-    val searchResults = MutableLiveData<List<BucketListEntry>?>()
-    private var allEntries: LiveData<List<BucketListEntry>>?
-    private var sortedList = MutableLiveData<List<BucketListEntry>?>()
+    val searchResults = MutableLiveData<List<BucketListEntry>>()
+    var allEntries: LiveData<List<BucketListEntry>>? = bucketListDao?.getAllEntries()
+    var sortedList = MutableLiveData<List<BucketListEntry>>()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
-
-    init {
-        val db: TravelRoomDataBase? = TravelRoomDataBase.getDatabase(application)
-        bucketListDao = db?.bucketListDao()
-        allEntries = bucketListDao?.getAllEntries()
-    }
 
     fun insertEntry(newEntry: BucketListEntry) {
         coroutineScope.launch(Dispatchers.IO) { asyncInsertEntry(newEntry) }
@@ -49,8 +43,8 @@ class BucketListRepository(application: Application) {
     fun findEntry(name:String) {
         coroutineScope.launch(Dispatchers.IO) { searchResults.value = asyncFindEntry(name) }
     }
-    private suspend fun asyncFindEntry(name: String): List<BucketListEntry>? =
-        coroutineScope.async(Dispatchers.IO) { return@async bucketListDao?.findEntry(name) }.await()
+    private suspend fun asyncFindEntry(name: String): List<BucketListEntry> =
+        coroutineScope.async(Dispatchers.IO) { return@async bucketListDao?.findEntry(name) }.await()!!
 
     fun deleteEntry(id: Int) {
         coroutineScope.launch(Dispatchers.IO) { asyncDeleteEntry(id) }
@@ -61,14 +55,14 @@ class BucketListRepository(application: Application) {
     }
 
     fun sortEntriesAsc() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortEntriesAsc() }
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortEntriesAsc()!! }
     }
 
     private suspend fun asyncSortEntriesAsc(): List<BucketListEntry>? =
         coroutineScope.async(Dispatchers.IO) { return@async bucketListDao?.sortEntryAsc() }.await()
 
     fun sortEntriesDsc() {
-        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortEntriesDesc() }
+        coroutineScope.launch(Dispatchers.Main) { sortedList.value = asyncSortEntriesDesc()!! }
     }
 
     private suspend fun asyncSortEntriesDesc(): List<BucketListEntry>? =

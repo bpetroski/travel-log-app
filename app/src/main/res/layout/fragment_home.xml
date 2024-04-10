@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="navigateToJournalListFragment"
         android:text="Go to Journal List"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +21,11 @@
         app:layout_constraintVertical_bias="0.14" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonToProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="navigateToProfileFragment"
         android:text="View Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,18 +34,17 @@
         app:layout_constraintVertical_bias="0.446" />
 
     <Button
-        android:id="@+id/navigateToMaps"
+        android:id="@+id/buttonToMaps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="navigateToMapsFragment"
         android:text="Maps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/buttonToProfile"
         app:layout_constraintVertical_bias="0.463" />
 
     <TextView

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.databinding.FragmentBucketListBinding
 import com.travelbetadisaster.travel_log.ui.journalList.BucketListAdapter
 import com.travelbetadisaster.travel_log.ui.journalList.OnCompleteClickListener
@@ -20,7 +21,7 @@ class BucketListFragment : Fragment(), OnEntryClickListener, OnCompleteClickList
     }
 
     private var adapter: BucketListAdapter? = null
-    val viewModel: BucketListViewModel by viewModels()
+    private val viewModel: BucketListViewModel get() = (activity as MainActivity).bucketListViewModel
     private var _binding: FragmentBucketListBinding? = null
     private val binding get() = _binding!!
 

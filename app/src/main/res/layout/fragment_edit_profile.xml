@@ -42,7 +42,7 @@
         android:id="@+id/imageViewProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/default_profile_image"
+        android:src="@drawable/profilepic"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/todo" />

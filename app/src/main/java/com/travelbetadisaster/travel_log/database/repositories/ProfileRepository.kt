@@ -1,8 +1,6 @@
 package com.travelbetadisaster.travel_log.database.repositories
 
-import android.app.Application
 import androidx.lifecycle.LiveData
-import com.travelbetadisaster.travel_log.database.TravelRoomDataBase
 import com.travelbetadisaster.travel_log.database.dao.UserDao
 import com.travelbetadisaster.travel_log.database.dao.UserHistoryDao
 import com.travelbetadisaster.travel_log.database.tables.User
@@ -10,23 +8,11 @@ import com.travelbetadisaster.travel_log.database.tables.UserHistory
 import kotlinx.coroutines.*
 
 
-class ProfileRepository(application: Application) {
-    private var userDAO: UserDao?
-    private var userHistoryDao: UserHistoryDao?
-    /*val searchResults = MutableLiveData<List<User>?>()*/ //there probably isn't a reason to be able to search the users table so this list isn't necessary
-    // not sure what I'm meant to do with these
+class ProfileRepository(private val userDAO: UserDao, private val userHistoryDao: UserHistoryDao) {
+//  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
     var user: User? = null
-    var allUserHistory: LiveData<List<UserHistory>>?
+    private var allUserHistory: LiveData<List<UserHistory>>? = userHistoryDao?.getAllHistory()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
-
-    init {
-        val db: TravelRoomDataBase? =
-            TravelRoomDataBase.getDatabase(application)
-        // init vars
-        userDAO = db?.userDao()
-        userHistoryDao = db?.userHistoryDao()
-        allUserHistory = userHistoryDao?.getAllHistory()
-    }
 
     fun insertUser(newUser: User){
         coroutineScope.launch(Dispatchers.IO) {
@@ -70,7 +56,9 @@ class ProfileRepository(application: Application) {
     private suspend fun asyncGetAllHistory(): LiveData<List<UserHistory>>?{
         return userHistoryDao?.getAllHistory()
     }
-    fun getHistory(id: Int){
+
+    //TODO renable when and if history is implemented (low priority)
+    /*fun getHistory(id: Int){
         coroutineScope.launch(Dispatchers.IO){
             asyncGetHistory(id)
         }
@@ -109,6 +97,6 @@ class ProfileRepository(application: Application) {
     }
     private suspend fun asyncSortHistoryDesc(): List<UserHistory>?{
         return userHistoryDao?.sortHistoryDesc()
-    }
+    }*/
 
 }
