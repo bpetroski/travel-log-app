@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.travelbetadisaster.travel_log.MainActivity
+import com.travelbetadisaster.travel_log.R
+import com.travelbetadisaster.travel_log.database.tables.Location
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import com.travelbetadisaster.travel_log.databinding.FragmentEditJournalEntryBinding
 
@@ -45,7 +47,9 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
     }
 
     private fun saveEntry() {
-        val entry = Visit() //todo should also grab the name, locationID, and imageId before constructing a visit to pass to the method
+        //todo should also grab the name, locationID, and imageId before constructing a visit to pass to the method
+        // todo Location constructor to pass location ID
+        val entry = Visit(binding.journalTitle.text.toString(), 0, 0, binding.journalDescription.text.toString())
         viewModel.saveVisit(entry)
     }
 
