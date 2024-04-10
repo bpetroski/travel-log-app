@@ -7,9 +7,23 @@ import com.travelbetadisaster.travel_log.database.repositories.JournalRepository
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import kotlinx.coroutines.launch
 
+
 class JournalEntryViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: JournalRepository = JournalRepository(application)
+
+    fun getVisit(): Visit {
+        val visit = repository.getVisit() ?: createDefaultVisit()
+        return visit
+    }
+
+    private fun createDefaultVisit(): Visit {
+        return Visit(
+            id = 0,
+            location = "Default Location",
+            date = System.currentTimeMillis()
+        )
+    }
 
     // Function to save or update a visit entry
     fun saveVisit(visit: Visit) {
@@ -21,12 +35,11 @@ class JournalEntryViewModel(application: Application) : AndroidViewModel(applica
             }
         }
     }
-// Function to delete an entry 
+
+    // Function to delete an entry
     fun deleteVisit(id: Int) {
         viewModelScope.launch {
             repository.deleteVisit(id)
         }
     }
-
-
 }
