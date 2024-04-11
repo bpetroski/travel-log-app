@@ -42,8 +42,6 @@ class HomeFragment : Fragment() {
         return binding.root
 
     }
-    //todo correct button names
-    // Set Up Listeners for on click buttons to navigate
     private fun setupListeners() {
         binding.buttonToJournalList.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_journalListFragment)

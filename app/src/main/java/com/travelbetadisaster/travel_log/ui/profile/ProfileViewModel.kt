@@ -10,13 +10,13 @@ import com.travelbetadisaster.travel_log.database.tables.UserHistory
 class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() {
 
     /*private val repository: ProfileRepository = ProfileRepository(application)*/
-    val user: User? = repository.user
+    var user: User? = repository.user
 
     fun insertUser(newUser: User) {
         repository.insertUser(newUser)
     }
-    fun updateUser(user: User) {
-        repository.updateUser(user)
+    fun updateUser() {
+        user?.let { repository.updateUser(it) }
     }
 
     fun insertHistory(userHistory: UserHistory) {
@@ -53,10 +53,6 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
 
     fun setNewDescription(toString: Any) {
         TODO("Send new description to user object")
-    }
-
-    fun updateUserProfile() {
-        TODO("send updates to database")
     }
 
 }
