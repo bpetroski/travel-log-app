@@ -23,6 +23,9 @@ class Visit {
     @ColumnInfo(name = "text")
     var text:String? = null
 
+    @ColumnInfo(name = "date") // was included in documentation but never implemented
+    var date:String? = null
+
     /*@ColumnInfo(name = "trip_id")
     var tripID:Int = 0
 */
@@ -42,13 +45,14 @@ class Visit {
     }
 
     constructor(name: String, location: Int,
-                image: Int, text: String
+                image: Int, text: String, date: String
                 /*tripID: Int*/){
 
         this.name = name
         this.location = location
         this.image = image
         this.text = text
+        this.date = date
         /*this.tripID = tripID*/
 
     }
