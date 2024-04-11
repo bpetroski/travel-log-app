@@ -27,25 +27,54 @@
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/journal_entry_image" />
 
-        <TextView
-            android:id="@+id/journalTitle"
-            android:layout_width="236dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="16dp"
-            android:textSize="30sp"
-            app:layout_constraintLeft_toRightOf="@+id/journalImage"
-            app:layout_constraintStart_toEndOf="@+id/journalImage"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/journalImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/journalDescription"
-            android:layout_width="236dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintLeft_toRightOf="@+id/journalImage"
-            app:layout_constraintStart_toEndOf="@+id/journalImage"
-            app:layout_constraintTop_toBottomOf="@+id/journalTitle" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:paddingHorizontal="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/journalTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/placeholder_title"
+                    android:textColor="@color/design_default_color_on_primary"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/journalEntryDate"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:textSize="11sp"
+                    android:textColor="@color/design_default_color_on_primary"
+                    android:text="@string/default_date"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="11sp"
+                android:textColor="@color/design_default_color_on_primary"
+                android:text="@string/default_location"/>
+
+            <TextView
+                android:id="@+id/journalDescription"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textColor="@color/design_default_color_on_primary"
+                android:text="@string/placeholder_description" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

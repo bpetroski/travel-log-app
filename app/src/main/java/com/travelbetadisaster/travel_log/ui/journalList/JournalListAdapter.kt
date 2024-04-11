@@ -31,7 +31,12 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
     override fun onBindViewHolder(holder: JournalViewHolder, position: Int) {
         journalList.let {
             holder.visitTitle.text = it!![position].name
-            holder.visitThumbnail.setImageResource(it[position].image!!) //will probably need some kind of find by id
+            holder.visitDescription.text = it!![position].text
+            holder.visitDate.text = it!![position].date
+            if (it[position].image != 0) {
+                holder.visitThumbnail.setImageResource(it[position].image!!)
+            } else
+                holder.visitThumbnail.setImageResource(R.drawable.placeholder_image)
         }
         holder.itemView.setOnClickListener{
             journalList.let { listener.onItemClick(it!![position].id) }
@@ -46,9 +51,13 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
 
     inner class JournalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var visitTitle: TextView
+        var visitDescription: TextView
+        var visitDate: TextView
         var visitThumbnail: ImageView
         init {
             visitTitle = itemView.findViewById(R.id.journalTitle)
+            visitDescription = itemView.findViewById(R.id.journalDescription)
+            visitDate = itemView.findViewById(R.id.journalEntryDate)
             visitThumbnail = itemView.findViewById(R.id.journalImage)
         }
     }
