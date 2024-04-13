@@ -27,7 +27,10 @@ class JournalEntryViewModel(application: Application) : AndroidViewModel(applica
 
     // Function to save or update a visit entry
 
-    fun getVisit(id: Int) {
+    fun getVisit(id: Int): Visit? {
+        return repository.getVisitById(0)
+
+
         TODO("get and return a single visit")
     }
     fun saveVisit(visit: Visit) {
