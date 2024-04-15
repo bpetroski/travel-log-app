@@ -61,7 +61,7 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
         val newLocationID = (activity as MainActivity).callLocation().time.toInt()
         val newEntryTitle = binding.journalTitle.text.toString()
 //      pulls location title from EditText box and lat/long from device current location using callLocation from MainActivity.
-        val newEntryLocation = Location(  // TODO this new location still needs to be inserted into the location table
+        val newEntryLocation = Location(
             id = newLocationID, // this doesn't really work for an id but we're running outta time and I can't figure out how to make it work the right way
             name = binding.journalEntryLocation.text.toString(),
             description = "",
@@ -73,13 +73,12 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
         val formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy")
         val newEntryDateTime = LocalDateTime.now().format(formatter)
 
-        // TODO check for entryID in database to detect if editing (probably needs to be done in the onCreateView, but some code will be needed here to call for an update instead an insert)
         if(newEntryTitle == "" || newEntryDescription == "" || newEntryDateTime == ""){
             Toast.makeText(activity,"There was an error", Toast.LENGTH_SHORT).show()
             return
         }else{
             val entry = Visit(newEntryTitle, newLocationID, 0, newEntryDescription, newEntryDateTime)
-            viewModel.saveVisit(entry)
+            viewModel.saveVisit(entry, newEntryLocation)
             dismiss()
         }
     }
