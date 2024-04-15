@@ -7,12 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.PrimaryKey
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.R
+import com.travelbetadisaster.travel_log.database.repositories.LocationRepository
 import com.travelbetadisaster.travel_log.database.tables.Location
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import com.travelbetadisaster.travel_log.databinding.FragmentEditJournalEntryBinding
+import com.travelbetadisaster.travel_log.ui.maps.MapsFragment
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -23,6 +28,8 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
     //TODO create listeners for loacation button and photo button
     private var _binding: FragmentEditJournalEntryBinding? = null
     private val binding get() = _binding!!
+
+//    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     private val viewModel: JournalEntryViewModel
         get() = (activity as MainActivity).journalEntryViewModel
@@ -40,7 +47,7 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
         }
 
         setupListeners()
-
+//        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
         return binding.root
     }
 
@@ -51,8 +58,16 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
     }
 
     private fun saveEntry() {
+        val newLocationID = (activity as MainActivity).callLocation().time.toInt()
         val newEntryTitle = binding.journalTitle.text.toString()
-        val newEntryLocation = 0 // TODO not sure how to make this work. I don't think we have a function to pull the LocationID
+//      pulls location title from EditText box and lat/long from device current location using callLocation from MainActivity.
+        val newEntryLocation = Location(  // TODO this new location still needs to be inserted into the location table
+            id = newLocationID, // this doesn't really work for an id but we're running outta time and I can't figure out how to make it work the right way
+            name = binding.journalEntryLocation.text.toString(),
+            description = "",
+            lattitude = (activity as MainActivity).callLocation().latitude.toString(),
+            longitude = (activity as MainActivity).callLocation().longitude.toString()
+        )
         val newEntryImage = 0 // TODO connect with image picker. Can probably use constructor because it will be new images.
         val newEntryDescription = binding.journalDescription.text.toString()
         val formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy")
@@ -63,7 +78,7 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
             Toast.makeText(activity,"There was an error", Toast.LENGTH_SHORT).show()
             return
         }else{
-            val entry = Visit(newEntryTitle, 0, 0, newEntryDescription, newEntryDateTime)
+            val entry = Visit(newEntryTitle, newLocationID, 0, newEntryDescription, newEntryDateTime)
             viewModel.saveVisit(entry)
             dismiss()
         }
