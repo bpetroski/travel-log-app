@@ -19,8 +19,12 @@ class JournalEntryViewModel(private val journalRepository: JournalRepository, pr
 
     // Function to save or update a visit entry
 
-    fun getVisit(id: Int) {
-        TODO("get and return a single visit")
+    fun getVisit(id: Int) : Visit? {
+        return journalRepository.getVisit(id)
+    }
+
+    fun getLocation(id: Int) :Location? {
+        return locationRepository.getLocation(id)
     }
     fun saveVisit(visit: Visit, location: Location) {
         viewModelScope.launch {

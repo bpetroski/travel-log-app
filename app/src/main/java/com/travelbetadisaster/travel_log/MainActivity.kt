@@ -53,7 +53,8 @@ class MainActivity : AppCompatActivity() {
 
     // not private so that they can be passed to the correct fragment
     val journalEntryViewModel: JournalEntryViewModel by viewModels {
-        JournalItemModelFactory((application as JournalApplication).journalRepository)
+        JournalItemModelFactory((application as JournalApplication).journalRepository,
+            (application as JournalApplication).locationRepository)
     }
     val journalListViewModel: JournalListViewModel by viewModels {
         JournalListModelFactory((application as JournalApplication).journalRepository,

@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.travelbetadisaster.travel_log.JournalApplication
 import com.travelbetadisaster.travel_log.MainActivity
+import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalListBinding
 
 
@@ -39,8 +41,10 @@ class JournalListFragment() : Fragment(), OnItemClickListener  {
     }
 
 
+
+
     private fun listenerSetup() {
-        //todo implement when rest of buttons are added to layout
+        //todo setup listeners
     }
 
     private fun observerSetup() {
@@ -74,7 +78,8 @@ class JournalListFragment() : Fragment(), OnItemClickListener  {
     }
 
     override fun onItemClick(id: Int) {
-        viewModel.showVisit(id)
+        val action= JournalListFragmentDirections.actionNavJournalListToJournalEntryFragment(id)
+        findNavController().navigate(action)
     }
 
 }
