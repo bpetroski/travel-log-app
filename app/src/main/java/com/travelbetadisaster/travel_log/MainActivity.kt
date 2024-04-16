@@ -86,6 +86,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -115,6 +116,7 @@ class MainActivity : AppCompatActivity() {
 
     // call from other fragments for location
     fun callLocation(): Location{
+        location = Location("default location")
         getCurrentLocation()
         return location
     }
@@ -141,6 +143,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "There was an Error", Toast.LENGTH_SHORT).show()
                     }else {
                         // get success
+                        this.location = location
                         latitude = location.latitude.toString()
                         longitude = location.longitude.toString()
                     }

@@ -91,7 +91,7 @@
             android:layout_height="match_parent"
 
             android:layout_weight="1"
-            android:id="@+id/setLocation"
+            android:id="@+id/btnSetLocation"
             android:contentDescription="@string/set_location"
             android:backgroundTint="@color/design_default_color_primary"
             android:src="@drawable/baseline_pin_drop_24"
@@ -144,6 +144,7 @@
         android:layout_marginVertical="5dp">
 
         <ImageButton
+            android:id="@+id/btnAddPhoto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
