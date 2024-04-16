@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.databinding.FragmentBucketListBinding
 import com.travelbetadisaster.travel_log.ui.journalList.BucketListAdapter
 import com.travelbetadisaster.travel_log.ui.journalList.OnCompleteClickListener
-import com.travelbetadisaster.travel_log.ui.journalList.OnEntryClickListener
 
-class BucketListFragment : Fragment(), OnEntryClickListener, OnCompleteClickListener {
+class BucketListFragment : Fragment(), OnCompleteClickListener {
 
     companion object {
         fun newInstance() = BucketListFragment()
@@ -38,7 +38,11 @@ class BucketListFragment : Fragment(), OnEntryClickListener, OnCompleteClickList
     }
 
     private fun listenerSetup() {
-        //todo implement when rest of buttons are added to layout
+
+        binding.addButton.setOnClickListener { newEntryClick() }
+        binding.ascButton.setOnClickListener{ viewModel.sortEntryAsc() }
+        binding.descButton.setOnClickListener{ viewModel.sortEntryDsc() }
+
     }
     private fun observerSetup() {
         viewModel.getAllEntries()?.observe(viewLifecycleOwner) { visits ->
@@ -65,17 +69,18 @@ class BucketListFragment : Fragment(), OnEntryClickListener, OnCompleteClickList
     }
 
     private fun recyclerSetup() {
-        adapter = BucketListAdapter(this, this)
+        adapter = BucketListAdapter(this)
         binding.bucketListRecycler.adapter = adapter
         binding.bucketListRecycler.layoutManager = LinearLayoutManager(requireContext())
     }
 
-    override fun onItemClick(id: Int) {
-        viewModel.showEntry(id)
-    }
-
     override fun onCompleteClick(id: Int) {
         viewModel.setComplete(id)
+    }
+
+    private fun newEntryClick() {
+        val action = BucketListFragmentDirections.actionNavBucketListToEditBucketListFragment()
+        findNavController().navigate(action)
     }
 
 }

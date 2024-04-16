@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import android.content.Context
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
@@ -107,6 +108,7 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
             lattitude = (activity as MainActivity).callLocation().latitude.toString(),
             longitude = (activity as MainActivity).callLocation().longitude.toString()
         )
+        Log.e("zzz", (activity as MainActivity).callLocation().longitude.toString())
 /*        val newEntryImage = 0
         if(photoAttached){val newEntryImage = fileTimestamp.toInt()}*/
         val newEntryImage = fileTimestamp.toInt()
@@ -119,7 +121,7 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
             return
         }else{
             val entry = Visit(newEntryTitle, newLocationID, newEntryImage, newEntryDescription, newEntryDateTime)
-            viewModel.saveVisit(entry)
+            viewModel.saveVisit(entry, newEntryLocation)
             dismiss()
         }
     }

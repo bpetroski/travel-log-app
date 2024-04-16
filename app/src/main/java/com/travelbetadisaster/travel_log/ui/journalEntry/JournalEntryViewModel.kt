@@ -30,7 +30,7 @@ class JournalEntryViewModel(private val journalRepository: JournalRepository, pr
         viewModelScope.launch {
             if (visit.id == 0) {
                 journalRepository.insertVisit(visit)
-                locationRepository.insertLocation(Location())
+                locationRepository.insertLocation(location)
             } else {
                 journalRepository.updateVisit(visit)
             }

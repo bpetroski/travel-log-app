@@ -53,7 +53,11 @@
         android:id="@+id/nav_bucket_list"
         android:name="com.travelbetadisaster.travel_log.ui.bucketList.BucketListFragment"
         android:label="fragment_bucket_list"
-        tools:layout="@layout/fragment_bucket_list" />
+        tools:layout="@layout/fragment_bucket_list" >
+        <action
+            android:id="@+id/action_nav_bucket_list_to_editBucketListFragment"
+            app:destination="@id/editBucketListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/journalEntryFragment"
         android:name="com.travelbetadisaster.travel_log.ui.journalEntry.JournalEntryFragment"
@@ -76,4 +80,9 @@
             app:argType="integer"
             android:defaultValue="0" />
     </dialog>
+    <fragment
+        android:id="@+id/editBucketListFragment"
+        android:name="com.travelbetadisaster.travel_log.ui.bucketList.EditBucketListFragment"
+        android:label="fragment_edit_bucket_list"
+        tools:layout="@layout/fragment_edit_bucket_list" />
 </navigation>

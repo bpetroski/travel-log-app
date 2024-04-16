@@ -67,6 +67,13 @@ class BucketListRepository(private val bucketListDao: BucketListDao) {
 
     private suspend fun asyncSortEntriesDesc(): List<BucketListEntry>? =
         coroutineScope.async(Dispatchers.IO) { return@async bucketListDao?.sortEntryDesc()}.await()
+    fun setComplete(id: Int) {
+        coroutineScope.launch(Dispatchers.IO) { asyncSetComplete(id) }
+    }
+
+    private suspend fun asyncSetComplete(id: Int) {
+        bucketListDao.setComplete(id)
+    }
 
 
 

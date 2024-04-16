@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                     return
                 }
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener(this){
-                    val location:Location? = it.result
+                    val location:Location? = it.result //todo I believe it.result isn't returning a Location in the sense of our location class. meaning when we set this.location to it, we're getting a null value
                     if(location==null){
                         Toast.makeText(applicationContext, "There was an Error", Toast.LENGTH_SHORT).show()
                     }else {
