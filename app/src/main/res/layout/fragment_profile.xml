@@ -18,27 +18,52 @@
             android:contentDescription="@string/todo"
             app:layout_constraintBottom_toTopOf="@+id/hometown"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.905"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="ImageContrastCheck"
             tools:srcCompat="@tools:sample/avatars" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/bio"
-            android:layout_width="409dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/enter_bio"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="418dp"
-            tools:ignore="MissingConstraints">
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView">
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_profile"
+            app:layout_constraintTop_toBottomOf="@+id/mapView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/homeButton"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            app:layout_constraintTop_toBottomOf="@+id/editButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
 
         <EditText
             android:id="@+id/hometown"
             android:layout_width="230dp"
             android:layout_height="57dp"
             android:layout_marginBottom="16dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/hometown"
             android:inputType="textPostalAddress"
@@ -46,16 +71,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            android:autofillHints="" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/bioContainer"
             android:layout_width="395dp"
             android:layout_height="52dp"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="497dp"
-            tools:text="Enter Bio"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="465dp"
+            tools:text="Enter Bio" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameContainer"
@@ -80,8 +106,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bioContainer"
+            app:layout_constraintVertical_bias="0.121"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
