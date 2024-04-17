@@ -34,7 +34,7 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
             holder.visitDescription.text = it!![position].text
             holder.visitDate.text = it!![position].date
             if (it[position].image != 0) {
-                holder.visitThumbnail.setImageResource(it[position].image!!)
+                /*holder.visitThumbnail.setImageResource(it[position].image!!)*/
             } else
                 holder.visitThumbnail.setImageResource(R.drawable.placeholder_image)
         }

@@ -85,7 +85,7 @@
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="20dp">
 <!--TODO this button will prbably not do anything based on how much time we have left
-    TODO in theory if we kept developing features it would let the user choose a location on the map-->
+    TODO in theory if we kept developing features it would let the user choose a tbdLocation on the map-->
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -110,7 +110,7 @@
                 android:layout_height="match_parent"
 
                 android:id="@+id/journalEntryLocation"
-                android:hint="@string/location"/>
+                android:hint="@string/tbdLocation"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

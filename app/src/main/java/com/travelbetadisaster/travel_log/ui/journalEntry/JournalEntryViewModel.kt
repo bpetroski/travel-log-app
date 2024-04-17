@@ -1,16 +1,13 @@
 package com.travelbetadisaster.travel_log.ui.journalEntry
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.travelbetadisaster.travel_log.database.repositories.JournalRepository
 import com.travelbetadisaster.travel_log.database.repositories.LocationRepository
-import com.travelbetadisaster.travel_log.database.tables.Location
+import com.travelbetadisaster.travel_log.database.tables.TbdLocation
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
 
 class JournalEntryViewModel(private val journalRepository: JournalRepository, private val locationRepository: LocationRepository): ViewModel() {
 
@@ -19,18 +16,18 @@ class JournalEntryViewModel(private val journalRepository: JournalRepository, pr
 
     // Function to save or update a visit entry
 
-    fun getVisit(id: Int) : Visit? {
+    fun getVisit(id: Int) : LiveData<Visit> {
         return journalRepository.getVisit(id)
     }
 
-    fun getLocation(id: Int) :Location? {
+    fun getLocation(id: Int) :TbdLocation? {
         return locationRepository.getLocation(id)
     }
-    fun saveVisit(visit: Visit, location: Location) {
+    fun saveVisit(visit: Visit, tbdLocation: TbdLocation) {
         viewModelScope.launch {
             if (visit.id == 0) {
                 journalRepository.insertVisit(visit)
-                locationRepository.insertLocation(location)
+                locationRepository.insertLocation(tbdLocation)
             } else {
                 journalRepository.updateVisit(visit)
             }

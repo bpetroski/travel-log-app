@@ -8,12 +8,10 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,10 +21,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.travelbetadisaster.travel_log.database.TravelRoomDataBase
 import com.travelbetadisaster.travel_log.databinding.ActivityMainBinding
 import com.travelbetadisaster.travel_log.ui.bucketList.BucketListModelFactory
 import com.travelbetadisaster.travel_log.ui.bucketList.BucketListViewModel
@@ -35,7 +31,6 @@ import com.travelbetadisaster.travel_log.ui.journalEntry.JournalEntryViewModel
 import com.travelbetadisaster.travel_log.ui.journalEntry.JournalItemModelFactory
 import com.travelbetadisaster.travel_log.ui.journalList.JournalListModelFactory
 import com.travelbetadisaster.travel_log.ui.journalList.JournalListViewModel
-import com.travelbetadisaster.travel_log.ui.profile.ProfileFragment
 import com.travelbetadisaster.travel_log.ui.profile.ProfileModelFactory
 import com.travelbetadisaster.travel_log.ui.profile.ProfileViewModel
 
@@ -119,6 +114,7 @@ class MainActivity : AppCompatActivity() {
     fun callLocation(): Location{
         location = Location("default location")
         getCurrentLocation()
+        Log.e("zzz", location.latitude.toString())
         return location
     }
 
@@ -139,7 +135,7 @@ class MainActivity : AppCompatActivity() {
                     return
                 }
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener(this){
-                    val location:Location? = it.result //todo I believe it.result isn't returning a Location in the sense of our location class. meaning when we set this.location to it, we're getting a null value
+                    val location:Location? = it.result //todo I believe it.result isn't returning a TbdLocation in the sense of our location class. meaning when we set this.location to it, we're getting a null value
                     if(location==null){
                         Toast.makeText(applicationContext, "There was an Error", Toast.LENGTH_SHORT).show()
                     }else {
@@ -151,7 +147,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }else {
                 // Open Settings and request user to turn on location services
-                Toast.makeText(applicationContext, "Please Turn on Location Services", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "Please Turn on TbdLocation Services", Toast.LENGTH_LONG).show()
                 val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 startActivity(intent)
             }
@@ -194,10 +190,10 @@ class MainActivity : AppCompatActivity() {
 
         if(requestCode == PERMISSION_REQUEST_ACCESS_LOCATION){
             if(grantResults.isNotEmpty() && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(applicationContext, "Location Access Granted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "TbdLocation Access Granted", Toast.LENGTH_SHORT).show()
                 getCurrentLocation()
             }else{
-                Toast.makeText(applicationContext, "Location Access Denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "TbdLocation Access Denied", Toast.LENGTH_SHORT).show()
             }
         }
     }
