@@ -44,7 +44,13 @@ class JournalListFragment() : Fragment(), OnItemClickListener  {
 
 
     private fun listenerSetup() {
-        //todo setup listeners
+        binding.ascButton.setOnClickListener {
+            viewModel.sortVisitAsc()
+        }
+        binding.descButton.setOnClickListener {
+            viewModel.sortVisitDesc()
+        }
+
     }
 
     private fun observerSetup() {

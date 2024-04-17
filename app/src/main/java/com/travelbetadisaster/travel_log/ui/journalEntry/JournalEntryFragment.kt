@@ -1,19 +1,20 @@
 package com.travelbetadisaster.travel_log.ui.journalEntry
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.travelbetadisaster.travel_log.MainActivity
-import com.travelbetadisaster.travel_log.R
-import com.travelbetadisaster.travel_log.database.tables.Location
+import com.travelbetadisaster.travel_log.database.tables.TbdLocation
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalEntryBinding
+import java.io.File
 
 class JournalEntryFragment : Fragment() {
 
@@ -21,8 +22,6 @@ class JournalEntryFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: JournalEntryViewModel get() = (activity as MainActivity).journalEntryViewModel
     private var entryId: Int? = null
-    private var visit: Visit? = null
-    private var location: Location? = null
     private val args: JournalEntryFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -30,17 +29,20 @@ class JournalEntryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentJournalEntryBinding.inflate(inflater, container, false)
-
         //get the id from safeargs
         entryId =args.VisitId
-        visit = viewModel.getVisit(id)
-        location = viewModel.getLocation(visit?.location!!)
+        viewModel.getVisit(entryId!!).observe(viewLifecycleOwner) {visit->
+            visit?.let {
+                observeLocation(it.location)
+                binding.journalTitle.text = it.name
+                binding.journalEntryDescription.text = it.text
+                binding.journalEntryDateTime.text = it.date
 
-        binding.journalTitle.text = visit?.name
-        binding.journalEntryDescription.text = visit?.text
-        binding.journalEntryDateTime.text = visit?.date
-        /*binding.journalEntryImage.setImageResource(visit?.image!!)*/ //todo uncomment when image is working
-        binding.journalEntryLocation.text = location.toString()
+                binding.journalEntryImage.setImageBitmap(
+                    BitmapFactory.decodeFile(
+                        "/data/data/com.travelbetadisaster.travel_log/files/journal_image_${it.image.toString()}.jpg"))
+            }
+        }
 
         setupListeners()
 
@@ -82,5 +84,12 @@ class JournalEntryFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun observeLocation(id: Int) {
+        viewModel.getLocation(id).observe(viewLifecycleOwner) { tbdlocation->
+           tbdlocation?.let {
+            binding.journalEntryLocation.text = it.name }
+        }
     }
 }

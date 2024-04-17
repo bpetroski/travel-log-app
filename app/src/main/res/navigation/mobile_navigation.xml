@@ -84,5 +84,9 @@
         android:id="@+id/editBucketListFragment"
         android:name="com.travelbetadisaster.travel_log.ui.bucketList.EditBucketListFragment"
         android:label="fragment_edit_bucket_list"
-        tools:layout="@layout/fragment_edit_bucket_list" />
+        tools:layout="@layout/fragment_edit_bucket_list" >
+        <action
+            android:id="@+id/action_editBucketListFragment_to_nav_bucket_list"
+            app:destination="@id/nav_bucket_list" />
+    </fragment>
 </navigation>

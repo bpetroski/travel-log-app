@@ -15,8 +15,8 @@ interface BucketListDao {
     @Update
     fun updateEntry(bucketListEntryEntry: BucketListEntry)
 
-    @Query("DELETE FROM bucketlist_entries where id = :id")
-    fun deleteEntry(id: Int)
+    /*@Query("DELETE FROM bucketlist_entries where id = :id")
+    fun deleteEntry(id: Int)*/
 
     @Query("SELECT * FROM bucketlist_entries")
     fun getAllEntries(): LiveData<List<BucketListEntry>>

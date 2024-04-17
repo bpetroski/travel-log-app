@@ -23,9 +23,9 @@ class BucketListViewModel(private val repository: BucketListRepository) : ViewMo
         repository.findEntry(name)
     }
 
-    fun deleteEntry(id: Int) {
+    /*fun deleteEntry(id: Int) {
         repository.deleteEntry(id)
-    }
+    }*/
 
     fun getSearchResults(): MutableLiveData<List<BucketListEntry>> {
         return searchResults
