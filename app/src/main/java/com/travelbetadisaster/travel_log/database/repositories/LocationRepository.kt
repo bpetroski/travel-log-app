@@ -25,8 +25,9 @@ class LocationRepository(private val locationDao: LocationDao) {
         locationDao?.insertLocation(location)
     }
 
-    fun getLocation(id: Int) {
-         coroutineScope.launch(Dispatchers.IO) { location = asyncGetLocation(id) }
+    fun getLocation(id: Int) :Location? {
+        coroutineScope.launch(Dispatchers.IO) { location = asyncGetLocation(id) }
+        return location
     }
 
     private fun asyncGetLocation(id: Int): Location? {

@@ -32,5 +32,7 @@ interface BucketListDao {
 
     @Query("SELECT * FROM bucketlist_entries ORDER BY title DESC")
     fun sortEntryDesc(): List<BucketListEntry>
+    @Query("Update bucketlist_entries SET completed = 1 Where id = :id")
+    fun setComplete(id: Int)
 
 }

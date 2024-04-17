@@ -115,12 +115,12 @@
         android:contentDescription="@string/journal_entry_image"/>
 
     <TextView
+        android:id="@+id/journalEntryDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:text="@string/placeholder_description"
         android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="13sp"
-        />
+        android:textSize="13sp" />
 
 </LinearLayout>

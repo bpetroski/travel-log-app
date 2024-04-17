@@ -20,8 +20,9 @@ class JournalRepository(private val visitDao: VisitDao) {
     val sortedList = MutableLiveData<List<Visit>>()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    fun getVisit(id: Int)  {
+    fun getVisit(id: Int) : Visit?  {
         coroutineScope.launch(Dispatchers.IO) { visit = asyncGetVisit(id) }
+        return visit
     }
 
     private fun asyncGetVisit(id: Int) : Visit {

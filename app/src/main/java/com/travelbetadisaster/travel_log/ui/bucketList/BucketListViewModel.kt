@@ -47,12 +47,8 @@ class BucketListViewModel(private val repository: BucketListRepository) : ViewMo
         return sortedList
     }
 
-    fun showEntry(id: Int) {
-        TODO("navigate to the entry fragment")
-    }
-
     fun setComplete(id: Int) {
-        TODO("update the checkMark to show complete and the database to reflect that")
+        repository.setComplete(id)
     }
 
 }

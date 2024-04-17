@@ -12,16 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.BucketListEntry
 
-interface OnEntryClickListener {
-    fun onItemClick(id: Int)
-}
-
 interface OnCompleteClickListener {
     fun onCompleteClick(id: Int)
 }
 
-class BucketListAdapter(private val entryListener: OnEntryClickListener,
-                        private val completeListener: OnCompleteClickListener ) :
+class BucketListAdapter(private val completeListener: OnCompleteClickListener ) :
     RecyclerView.Adapter<BucketListAdapter.BucketListViewHolder>()
 {
     private var bucketList: List<BucketListEntry>? = null
@@ -39,10 +34,10 @@ class BucketListAdapter(private val entryListener: OnEntryClickListener,
         bucketList.let {
             holder.title.text = it!![position].title
             holder.description.text = it!![position].description
+            if(it!![position].isCompleted) {
+                holder.completed.setImageResource(R.drawable.baseline_check_box_24)
+            }
 
-        }
-        holder.itemView.setOnClickListener{
-            bucketList.let { entryListener.onItemClick(it!![position].id) }
         }
         holder.completed.setOnClickListener{
             bucketList.let { completeListener.onCompleteClick(it!![position].id) }
@@ -59,13 +54,12 @@ class BucketListAdapter(private val entryListener: OnEntryClickListener,
         var title: TextView
         var description: TextView
         var completed: ImageView = itemView.findViewById(R.id.completed)
-        //todo: find a checkmark resource
 
 
         init {
             title = itemView.findViewById(R.id.bucketListTitle)
             description = itemView.findViewById(R.id.bucketListDescription)
-            completed.setImageResource(R.drawable.baseline_check_box_24)
+            completed.setImageResource(R.drawable.baseline_check_box_outline_blank_24)
         }
     }
 

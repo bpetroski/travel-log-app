@@ -53,7 +53,7 @@ class MapsFragment : Fragment() {
         try {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-                val locationResult: Task<Location> = fusedLocationProviderClient.lastLocation //todo missing permissions issue
+                val locationResult: Task<Location> = fusedLocationProviderClient.lastLocation //todo missing permissions issue // perms somehow work now bc of code added in MainActivity and idk why
                 locationResult.addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         val lastKnownLocation = task.result
