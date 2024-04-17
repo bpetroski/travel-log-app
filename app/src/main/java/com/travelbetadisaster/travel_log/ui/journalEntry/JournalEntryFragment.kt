@@ -20,8 +20,6 @@ class JournalEntryFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: JournalEntryViewModel get() = (activity as MainActivity).journalEntryViewModel
     private var entryId: Int? = null
-    private var visit: Visit? = null
-    private var tbdLocation: TbdLocation? = null
     private val args: JournalEntryFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -33,12 +31,11 @@ class JournalEntryFragment : Fragment() {
         entryId =args.VisitId
         viewModel.getVisit(entryId!!).observe(viewLifecycleOwner) {visit->
             visit?.let {
-                tbdLocation = viewModel.getLocation(it.location)
+                observeLocation(it.location)
                 binding.journalTitle.text = it.name
                 binding.journalEntryDescription.text = it.text
                 binding.journalEntryDateTime.text = it.date
                 /*binding.journalEntryImage.setImageResource(visit?.image!!)*/ //todo uncomment when image is working
-                binding.journalEntryLocation.text = tbdLocation.toString()
             }
         }
 
@@ -82,5 +79,12 @@ class JournalEntryFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun observeLocation(id: Int) {
+        viewModel.getLocation(id).observe(viewLifecycleOwner) { tbdlocation->
+           tbdlocation?.let {
+            binding.journalEntryLocation.text = it.name }
+        }
     }
 }

@@ -25,13 +25,8 @@ class LocationRepository(private val locationDao: LocationDao) {
         locationDao?.insertLocation(tbdLocation)
     }
 
-    fun getLocation(id: Int) :TbdLocation? {
-        coroutineScope.launch(Dispatchers.IO) { tbdLocation = asyncGetLocation(id) }
-        return tbdLocation
-    }
-
-    private fun asyncGetLocation(id: Int): TbdLocation? {
-        return locationDao?.getLocation(id)
+    fun getLocation(id: Int) :LiveData<TbdLocation> {
+        return locationDao.getLocation(id)
     }
 
     fun deleteLocation(id: Int) {

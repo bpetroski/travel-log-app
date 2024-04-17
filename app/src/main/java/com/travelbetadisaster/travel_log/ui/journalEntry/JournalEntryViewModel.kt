@@ -20,7 +20,7 @@ class JournalEntryViewModel(private val journalRepository: JournalRepository, pr
         return journalRepository.getVisit(id)
     }
 
-    fun getLocation(id: Int) :TbdLocation? {
+    fun getLocation(id: Int) :LiveData<TbdLocation> {
         return locationRepository.getLocation(id)
     }
     fun saveVisit(visit: Visit, tbdLocation: TbdLocation) {

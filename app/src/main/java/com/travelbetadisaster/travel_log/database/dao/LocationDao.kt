@@ -8,8 +8,8 @@ import androidx.room.Update
 import com.travelbetadisaster.travel_log.database.tables.TbdLocation
 @Dao
 interface LocationDao {
-    @Query("SELECT * FROM location WHERE locationID = :id")
-    fun getLocation(id: Int): TbdLocation
+    @Query("SELECT * FROM location WHERE locationID = :id LIMIT 1")
+    fun getLocation(id: Int): LiveData<TbdLocation>
     @Insert
     fun insertLocation(tbdLocation: TbdLocation)
     @Update
