@@ -114,14 +114,17 @@ class MainActivity : AppCompatActivity() {
     fun callLocation(): Location{
         location = Location("default location")
         getCurrentLocation()
-        Log.e("zzz", location.latitude.toString())
+        Log.e("zzz", "call Location")
         return location
     }
 
     private fun getCurrentLocation(){
         // reference video https://www.youtube.com/watch?v=mwzKYIB9cQs
+        Log.e("zzz", "get currentLocation")
         if (checkPerms()){
+            Log.e("zzz", "good permis")
             if (isLocationEnabled()){
+                Log.e("zzz", "Location Enabled")
                 // get lat and long
                 if (ActivityCompat.checkSelfPermission(
                         this,
@@ -131,15 +134,19 @@ class MainActivity : AppCompatActivity() {
                         Manifest.permission.ACCESS_COARSE_LOCATION
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
+                    Log.e("zzz", "self permission")
                     requestPermission()
                     return
                 }
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener(this){
-                    val location:Location? = it.result //todo I believe it.result isn't returning a TbdLocation in the sense of our location class. meaning when we set this.location to it, we're getting a null value
+                    Log.e("zzz", "get lastLocation")
+                    val location:Location? = it.result
                     if(location==null){
+                        Log.e("zzz", "its null")
                         Toast.makeText(applicationContext, "There was an Error", Toast.LENGTH_SHORT).show()
                     }else {
                         // get success
+                        Log.e("zzz", "not null")
                         this.location = location
                         latitude = location.latitude.toString()
                         longitude = location.longitude.toString()
@@ -152,6 +159,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }else {
+            Log.e("zzz", "bad permiss")
             // request perms
             requestPermission()
         }

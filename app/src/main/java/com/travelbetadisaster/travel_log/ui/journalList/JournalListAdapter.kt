@@ -1,6 +1,7 @@
 package com.travelbetadisaster.travel_log.ui.journalList
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +35,9 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
             holder.visitDescription.text = it!![position].text
             holder.visitDate.text = it!![position].date
             if (it[position].image != 0) {
-                /*holder.visitThumbnail.setImageResource(it[position].image!!)*/
+                holder.visitThumbnail.setImageBitmap(
+                    BitmapFactory.decodeFile(
+                        "/data/data/com.travelbetadisaster.travel_log/files/journal_image_${it!![position].image.toString()}.jpg"))
             } else
                 holder.visitThumbnail.setImageResource(R.drawable.placeholder_image)
         }

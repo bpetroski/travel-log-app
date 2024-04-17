@@ -1,5 +1,6 @@
 package com.travelbetadisaster.travel_log.ui.journalEntry
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.database.tables.TbdLocation
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalEntryBinding
+import java.io.File
 
 class JournalEntryFragment : Fragment() {
 
@@ -35,7 +37,10 @@ class JournalEntryFragment : Fragment() {
                 binding.journalTitle.text = it.name
                 binding.journalEntryDescription.text = it.text
                 binding.journalEntryDateTime.text = it.date
-                /*binding.journalEntryImage.setImageResource(visit?.image!!)*/ //todo uncomment when image is working
+
+                binding.journalEntryImage.setImageBitmap(
+                    BitmapFactory.decodeFile(
+                        "/data/data/com.travelbetadisaster.travel_log/files/journal_image_${it.image.toString()}.jpg"))
             }
         }
 

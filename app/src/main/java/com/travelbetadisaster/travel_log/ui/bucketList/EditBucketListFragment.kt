@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.BucketListEntry
@@ -37,7 +38,7 @@ class EditBucketListFragment : Fragment() {
         val newEntry: BucketListEntry = BucketListEntry(binding.NewBucketListTitle.text.toString(),
             binding.journalDescription.text.toString(), false)
         viewModel.newEntry(newEntry)
-        //todo navigate back to list
+        findNavController().navigate(R.id.action_editBucketListFragment_to_nav_bucket_list)
     }
 
 }

@@ -18,11 +18,6 @@ class JournalListViewModel(private val journalRepository: JournalRepository, pri
     private val sortedList: MutableLiveData<List<Visit>> = journalRepository.sortedList
 
 
-    //todo this is probably better suited for the Journal entry view model which will be driving the editJournalEntry fragment
-    fun newVisit(visit: Visit) {
-        journalRepository.insertVisit(visit)
-    }
-
     fun findVisit(name: String) {
         journalRepository.findVisit(name)
     }
@@ -52,9 +47,4 @@ class JournalListViewModel(private val journalRepository: JournalRepository, pri
     fun getSortedList(): MutableLiveData<List<Visit>> {
         return sortedList
     }
-
-    fun showVisit(id: Int) {
-        //todo navigate to Journal entry fragment, passing the id along
-    }
-
 }
