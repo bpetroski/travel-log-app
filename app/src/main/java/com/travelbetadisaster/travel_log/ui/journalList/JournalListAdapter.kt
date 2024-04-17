@@ -1,12 +1,15 @@
 package com.travelbetadisaster.travel_log.ui.journalList
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.Visit
 
@@ -59,6 +62,14 @@ class JournalListAdapter(private val listener: OnItemClickListener) :
             visitDescription = itemView.findViewById(R.id.journalDescription)
             visitDate = itemView.findViewById(R.id.journalEntryDate)
             visitThumbnail = itemView.findViewById(R.id.journalImage)
+
+            // code based off CPS 251 Recycler Intent example
+            itemView.setOnClickListener{ v: View ->
+                val i = Intent(v.context, JournalListFragment::class.java)
+                val p = this.adapterPosition
+                i.putExtra("position", p)
+                ContextCompat.startActivity(v.context, i, null)
+            }
         }
     }
 

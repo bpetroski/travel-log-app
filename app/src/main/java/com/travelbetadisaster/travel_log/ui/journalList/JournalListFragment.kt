@@ -78,6 +78,7 @@ class JournalListFragment() : Fragment(), OnItemClickListener  {
     }
 
     override fun onItemClick(id: Int) {
+        // TODO this throws an error. I think the onClickListener for the list should be in the Adapter but I'm not sure.
         val action= JournalListFragmentDirections.actionNavJournalListToJournalEntryFragment(id)
         findNavController().navigate(action)
     }

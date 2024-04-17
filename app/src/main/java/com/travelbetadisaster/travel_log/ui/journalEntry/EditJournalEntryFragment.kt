@@ -109,9 +109,8 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
             longitude = (activity as MainActivity).callLocation().longitude.toString()
         )
         Log.e("zzz", (activity as MainActivity).callLocation().longitude.toString())
-/*        val newEntryImage = 0
-        if(photoAttached){val newEntryImage = fileTimestamp.toInt()}*/
-        val newEntryImage = fileTimestamp.toInt()
+        // sets image ID to 0 if no image is attached
+        val newEntryImage: Int = if (photoAttached){fileTimestamp.toInt()}else{0}
         val newEntryDescription = binding.journalDescription.text.toString()
         val formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy")
         val newEntryDateTime = LocalDateTime.now().format(formatter)
