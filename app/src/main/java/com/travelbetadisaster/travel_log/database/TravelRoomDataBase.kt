@@ -7,7 +7,7 @@ import android.content.Context
 import com.travelbetadisaster.travel_log.database.dao.*
 import com.travelbetadisaster.travel_log.database.tables.*
 
-@Database(entities = [(BucketListEntry::class), (Location::class),
+@Database(entities = [(BucketListEntry::class), (TbdLocation::class),
     (User::class), (UserHistory::class), (Visit::class)], version = 1)
 abstract class TravelRoomDataBase: RoomDatabase() {
 

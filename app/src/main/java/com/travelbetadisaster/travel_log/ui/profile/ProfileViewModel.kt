@@ -15,11 +15,12 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
     private val coroutineScope = CoroutineScope(Dispatchers.Main) // or Dispatchers.IO depending on your needs
 
     /*private val repository: ProfileRepository = ProfileRepository(application)*/
-    val user: User? = repository.user
+    var user: User? = repository.user
 
     fun insertUser(newUser: User) {
         repository.insertUser(newUser)
     }
+    
     fun updateUser(user: User) {
         coroutineScope.launch(Dispatchers.IO) {
             try {
@@ -88,6 +89,7 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
         }
     }
 
+
     fun updateUserProfile() {
         user?.let {
             updateUser(it)
@@ -96,4 +98,3 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
         }
     }
 
-}

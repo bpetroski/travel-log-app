@@ -23,9 +23,9 @@ class BucketListViewModel(private val repository: BucketListRepository) : ViewMo
         repository.findEntry(name)
     }
 
-    fun deleteEntry(id: Int) {
+    /*fun deleteEntry(id: Int) {
         repository.deleteEntry(id)
-    }
+    }*/
 
     fun getSearchResults(): MutableLiveData<List<BucketListEntry>> {
         return searchResults
@@ -47,12 +47,8 @@ class BucketListViewModel(private val repository: BucketListRepository) : ViewMo
         return sortedList
     }
 
-    fun showEntry(id: Int) {
-        TODO("navigate to the entry fragment")
-    }
-
     fun setComplete(id: Int) {
-        TODO("update the checkMark to show complete and the database to reflect that")
+        repository.setComplete(id)
     }
 
 }

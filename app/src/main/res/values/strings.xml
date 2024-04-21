@@ -20,7 +20,7 @@
     <string name="time">Time</string>
     <string name="date">Date</string>
     <string name="set_location">Set Location</string>
-    <string name="location">Location</string>
+    <string name="tbdLocation">Location</string>
     <string name="add_picture">Add Picture</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="home">Home</string>
@@ -48,7 +48,7 @@
     <string name="delete">Delete</string>
     <string name="close_journal">close_journal</string>
     <string name="placeholder_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi bibendum neque egestas congue quisque. Vitae justo eget magna fermentum iaculis. Scelerisque purus semper eget duis at tellus. Ut consequat semper viverra nam libero. Vulputate dignissim suspendisse in est ante. Fringilla phasellus faucibus scelerisque eleifend. Libero enim sed faucibus turpis in eu. Sodales ut eu sem integer vitae. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Lectus magna fringilla urna porttitor rhoncus dolor.</string>
-    <string name="default_date">01/01/1970 12:00am</string>
+    <string name="default_datetime">01/01/1970 12:00am</string>
     <string name="default_location">Michigan, United States of America</string>
     <string name="placeholder_title">Placeholder Title</string>
     <string name="journal_list">Journal List</string>
@@ -59,4 +59,6 @@
     <string name="app_version_number">v1.1</string>
     <string name="title_edit_profile">title_edit_profile</string>
     <string name="fragment_profile">fragment_profile</string>
+    <string name="default_date">01/01/1970</string>
+    <string name="new_bucket_list_item">New Bucket List Item</string>
 </resources>

@@ -94,6 +94,7 @@ class MapsFragment : Fragment() {
         try {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 val locationResult = fusedLocationProviderClient.lastLocation
+
                 locationResult.addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful && task.result != null) {
                         // Set the map's camera position to the current location of the device.

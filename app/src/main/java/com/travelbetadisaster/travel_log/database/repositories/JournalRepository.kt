@@ -1,6 +1,7 @@
 package com.travelbetadisaster.travel_log.database.repositories
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.travelbetadisaster.travel_log.database.TravelRoomDataBase
@@ -13,20 +14,21 @@ import kotlinx.coroutines.launch
 
 class JournalRepository(private val visitDao: VisitDao) {
 //  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
-    private var visit: Visit? = null
+    /*private var visit: LiveData<Visit>*/
     var allVisits: LiveData<List<Visit>>? = visitDao?.getAllVisit()
     val searchResults = MutableLiveData<List<Visit>>()
     val byLocation = MutableLiveData<List<Visit>>()
     val sortedList = MutableLiveData<List<Visit>>()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    fun getVisit(id: Int)  {
-        coroutineScope.launch(Dispatchers.IO) { visit = asyncGetVisit(id) }
+    fun getVisit(id: Int) : LiveData<Visit>  {
+        /*coroutineScope.launch(Dispatchers.Main){ visit = asyncGetVisit(id)!! }*/
+        /*Log.e("zzz", visit.toString())*/
+        return visitDao.getVisit(id)
     }
 
-    private fun asyncGetVisit(id: Int) : Visit {
-        return visitDao?.getVisit(id)!!
-    }
+//    private suspend fun asyncGetVisit(id: Int) : Visit? = coroutineScope.async(Dispatchers.IO) {
+//        return@async visitDao?.getVisit(id) }.await()
 
     fun insertVisit(newVisit: Visit) {
         coroutineScope.launch(Dispatchers.IO) { asyncInsertVisit(newVisit)}

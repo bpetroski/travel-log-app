@@ -15,8 +15,8 @@ interface BucketListDao {
     @Update
     fun updateEntry(bucketListEntryEntry: BucketListEntry)
 
-    @Query("DELETE FROM bucketlist_entries where id = :id")
-    fun deleteEntry(id: Int)
+    /*@Query("DELETE FROM bucketlist_entries where id = :id")
+    fun deleteEntry(id: Int)*/
 
     @Query("SELECT * FROM bucketlist_entries")
     fun getAllEntries(): LiveData<List<BucketListEntry>>
@@ -32,5 +32,7 @@ interface BucketListDao {
 
     @Query("SELECT * FROM bucketlist_entries ORDER BY title DESC")
     fun sortEntryDesc(): List<BucketListEntry>
+    @Query("Update bucketlist_entries SET completed = 1 Where id = :id")
+    fun setComplete(id: Int)
 
 }

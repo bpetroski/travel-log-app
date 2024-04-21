@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -35,8 +36,17 @@
         android:id="@+id/nav_journal_list"
         android:name="com.travelbetadisaster.travel_log.ui.journalList.JournalListFragment"
         android:label="fragment_journal_list"
+
         tools:layout="@layout/fragment_journal_list" />
     <!-- Profile Fragment -->
+        <action
+            android:id="@+id/action_nav_journal_list_to_journalEntryFragment"
+            app:destination="@id/journalEntryFragment">
+            <!--<argument
+                android:name="VisitId"
+                app:argType="integer" />-->
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.travelbetadisaster.travel_log.ui.profile.ProfileFragment"
@@ -51,6 +61,11 @@
         android:id="@+id/nav_bucket_list"
         android:name="com.travelbetadisaster.travel_log.ui.bucketList.BucketListFragment"
         android:label="fragment_bucket_list"
+        tools:layout="@layout/fragment_bucket_list" >
+        <action
+            android:id="@+id/action_nav_bucket_list_to_editBucketListFragment"
+            app:destination="@id/editBucketListFragment" />
+      </fragment>
         tools:layout="@layout/fragment_bucket_list" />
     <fragment
         android:id="@+id/editProfileFragment"
@@ -59,4 +74,36 @@
         tools:layout="@layout/fragment_edit_profile" />
     <action android:id="@+id/action_global_nav_home"
         app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/journalEntryFragment"
+        android:name="com.travelbetadisaster.travel_log.ui.journalEntry.JournalEntryFragment"
+        android:label="fragment_journal_entry"
+        tools:layout="@layout/fragment_journal_entry" >
+        <argument
+            android:name="VisitId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_journalEntryFragment_to_editJournalEntryFragment"
+            app:destination="@id/editJournalEntryFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/editJournalEntryFragment"
+        android:name="com.travelbetadisaster.travel_log.ui.journalEntry.EditJournalEntryFragment"
+        android:label="fragment_edit_journal_entry"
+        tools:layout="@layout/fragment_edit_journal_entry" >
+        <argument
+            android:name="VisitID"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </dialog>
+    <fragment
+        android:id="@+id/editBucketListFragment"
+        android:name="com.travelbetadisaster.travel_log.ui.bucketList.EditBucketListFragment"
+        android:label="fragment_edit_bucket_list"
+        tools:layout="@layout/fragment_edit_bucket_list" >
+        <action
+            android:id="@+id/action_editBucketListFragment_to_nav_bucket_list"
+            app:destination="@id/nav_bucket_list" />
+    </fragment>
 </navigation>
