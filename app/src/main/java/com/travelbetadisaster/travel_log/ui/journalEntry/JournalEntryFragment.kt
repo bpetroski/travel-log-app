@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.travelbetadisaster.travel_log.MainActivity
+import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.TbdLocation
 import com.travelbetadisaster.travel_log.database.tables.Visit
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalEntryBinding
@@ -37,10 +38,12 @@ class JournalEntryFragment : Fragment() {
                 binding.journalTitle.text = it.name
                 binding.journalEntryDescription.text = it.text
                 binding.journalEntryDateTime.text = it.date
-
-                binding.journalEntryImage.setImageBitmap(
-                    BitmapFactory.decodeFile(
-                        "/data/data/com.travelbetadisaster.travel_log/files/journal_image_${it.image.toString()}.jpg"))
+                if (it.image != 0) {
+                    binding.journalEntryImage.setImageBitmap(
+                        BitmapFactory.decodeFile(
+                            "/data/data/com.travelbetadisaster.travel_log/files/journal_image_${it.image.toString()}.jpg"))
+                } else
+                    binding.journalEntryImage.setImageResource(R.drawable.placeholder_image)
             }
         }
 
@@ -50,11 +53,6 @@ class JournalEntryFragment : Fragment() {
     }
 
     private fun setupListeners() {
-/* //this button should be in the edit fragment
-        binding.btnSave.setOnClickListener {
-            saveEntry()
-        }
-*/
         binding.btnEdit.setOnClickListener {
             enableEditing()
         }
@@ -66,12 +64,6 @@ class JournalEntryFragment : Fragment() {
         }
     }
 
-    //this method exists in the edit journal entry fragment
-    /*private fun saveEntry() {
-        val entry = binding.journalDescription.text
-        viewModel.saveVisit(entry)
-    }*/
-
     private fun enableEditing() {
         val action = JournalEntryFragmentDirections.actionJournalEntryFragmentToEditJournalEntryFragment(entryId!!)
         findNavController().navigate(action)
@@ -79,6 +71,7 @@ class JournalEntryFragment : Fragment() {
 
     private fun deleteEntry(id: Int) {
         viewModel.deleteVisit(id)
+        findNavController().navigate(R.id.action_journalEntryFragment_to_nav_journal_list2)
     }
 
     override fun onDestroyView() {

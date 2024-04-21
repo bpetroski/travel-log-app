@@ -35,8 +35,6 @@ class JournalEntryViewModel(private val journalRepository: JournalRepository, pr
     }
 // Function to delete an entry 
     fun deleteVisit(id: Int) {
-        viewModelScope.launch {
             journalRepository.deleteVisit(id)
-        }
     }
 }
