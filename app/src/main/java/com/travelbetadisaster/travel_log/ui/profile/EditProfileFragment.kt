@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.travelbetadisaster.travel_log.database.dao.AppDatabase
+import com.travelbetadisaster.travel_log.database.repositories.ProfileRepository
 import com.travelbetadisaster.travel_log.databinding.FragmentEditProfileBinding
 
 class EditProfileFragment : Fragment() {
@@ -28,9 +31,25 @@ class EditProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+
+        // Obtain the AppDatabase instance
+        val database = AppDatabase.getDatabase(requireContext())
+
+        // Retrieve DAOs from the database
+        val userDao = database.userDao()
+        val userHistoryDao = database.userHistoryDao()
+
+        // Initialize the repository with DAOs
+        val repository = ProfileRepository(userDao, userHistoryDao)
+        val factory = ProfileModelFactory(repository)
+        viewModel = ViewModelProvider(this, factory).get(ProfileViewModel::class.java)
         listenerSetup()
     }
+
+
+
+
+
 
     private fun listenerSetup() {
         binding.saveButton.setOnClickListener { onSaveClick() }
@@ -38,16 +57,29 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun onSaveClick() {
-        viewModel.setNewName(binding.editTextName.text.toString())
-        viewModel.setNewHomeTown(binding.editTextHomeTown.text.toString().toInt())
-        viewModel.setNewDescription(binding.editTextDescription.text.toString())
-        viewModel.updateUser()
-        Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_SHORT).show()
+        val name = binding.editTextName.text.toString()
+        val homeTownText = binding.editTextHomeTown.text.toString()
+        val homeTown = homeTownText.toIntOrNull()
+        val description = binding.editTextDescription.text.toString()
+
+        if (name.isNotEmpty() && homeTown != null && description.isNotEmpty()) {
+            viewModel.setNewName(name)
+            viewModel.setNewHomeTown(homeTown) // Pass the parsed integer value directly
+            viewModel.setNewDescription(description)
+            viewModel.updateUserProfile()
+            Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), "Please fill out all fields correctly.", Toast.LENGTH_SHORT).show()
+        }
     }
 
+
+
+
     private fun onXClick() {
-        //todo return to profile fragment
+        findNavController().popBackStack()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -57,7 +89,6 @@ class EditProfileFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

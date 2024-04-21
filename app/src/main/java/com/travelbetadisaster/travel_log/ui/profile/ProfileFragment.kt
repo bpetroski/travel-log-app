@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.R
 import com.travelbetadisaster.travel_log.database.tables.User
@@ -14,6 +15,8 @@ import com.travelbetadisaster.travel_log.databinding.FragmentProfileBinding
 
 
 class ProfileFragment : Fragment() {
+
+
 
     companion object {
         fun newInstance() = ProfileFragment()
@@ -23,7 +26,6 @@ class ProfileFragment : Fragment() {
     private lateinit var textViewName: TextView
     private lateinit var textViewHomeTown: TextView
     private lateinit var textViewDescription: TextView
-
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
@@ -40,17 +42,19 @@ class ProfileFragment : Fragment() {
         textViewHomeTown = view.findViewById(R.id.hometown)
         textViewDescription = view.findViewById(R.id.bioContainer)
 
-        /*listenerSetup()*/
+        listenerSetup()
 
         return view
     }
 
+
+
     private fun listenerSetup() {
-        TODO("set button names correctly")
-        TODO("there are no buttons on fragment")
-        /*binding.editButton.setOnClickListener { onEditClick() }
-        binding.xButton.setOnClickListener { onXClick() }*/
-        /*binding.historyButton.setOnClickListener { onHistoryClick() }*/ TODO( "if history is implemented in time re-enable this")
+      //  TODO("set button names correctly")
+      //  TODO("there are no buttons on fragment")
+        binding.editButton.setOnClickListener { onEditClick() }
+        binding.homeButton.setOnClickListener { onXClick() }
+     //   /*binding.historyButton.setOnClickListener { onHistoryClick() }*/ TODO( "if history is implemented in time re-enable this")
     }
 
     private fun updateUserProfileUI(user: User) {
@@ -60,13 +64,14 @@ class ProfileFragment : Fragment() {
     }
 
     private fun onEditClick() {
-        TODO(" navigate to the edit profile fragment")
+        findNavController().navigate(R.id.action_nav_profile_to_editProfileFragment)
 
     }
 
 
     private fun onXClick() {
-        //todo navigate back to home fragment
+        findNavController().navigate(R.id.action_global_nav_home) // Assuming you have a global action to navigate to the home fragment.
+       // todo navigate back to home fragment
 
     }
 

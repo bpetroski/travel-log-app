@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 
 
 class ProfileRepository(private val userDAO: UserDao, private val userHistoryDao: UserHistoryDao) {
-//  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
+    //  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
     var user: User? = null
     private var allUserHistory: LiveData<List<UserHistory>>? = userHistoryDao?.getAllHistory()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)

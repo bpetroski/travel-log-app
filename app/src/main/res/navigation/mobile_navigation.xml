@@ -10,7 +10,8 @@
         android:id="@+id/nav_home"
         android:name="com.travelbetadisaster.travel_log.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
+        <!-- Actions to other fragments from Home -->
         <action
             android:id="@+id/action_nav_home_to_nav_maps"
             app:destination="@id/nav_maps" />
@@ -35,7 +36,9 @@
         android:id="@+id/nav_journal_list"
         android:name="com.travelbetadisaster.travel_log.ui.journalList.JournalListFragment"
         android:label="fragment_journal_list"
-        tools:layout="@layout/fragment_journal_list" >
+
+        tools:layout="@layout/fragment_journal_list" />
+    <!-- Profile Fragment -->
         <action
             android:id="@+id/action_nav_journal_list_to_journalEntryFragment"
             app:destination="@id/journalEntryFragment">
@@ -47,8 +50,13 @@
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.travelbetadisaster.travel_log.ui.profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:label="@string/fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <!-- Action to navigate to EditProfileFragment -->
+        <action
+            android:id="@+id/action_nav_profile_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_bucket_list"
         android:name="com.travelbetadisaster.travel_log.ui.bucketList.BucketListFragment"
@@ -57,6 +65,15 @@
         <action
             android:id="@+id/action_nav_bucket_list_to_editBucketListFragment"
             app:destination="@id/editBucketListFragment" />
+      </fragment>
+        tools:layout="@layout/fragment_bucket_list" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.travelbetadisaster.travel_log.ui.profile.EditProfileFragment"
+        android:label="@string/title_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <action android:id="@+id/action_global_nav_home"
+        app:destination="@id/nav_home" />
     </fragment>
     <fragment
         android:id="@+id/journalEntryFragment"
