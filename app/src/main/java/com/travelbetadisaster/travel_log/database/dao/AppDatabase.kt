@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.travelbetadisaster.travel_log.database.tables.*
 
 // List all entities your database will hold and set the version number.
-@Database(entities = [User::class, UserHistory::class, BucketListEntry::class, Location::class, Visit::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, UserHistory::class, BucketListEntry::class, TbdLocation::class, Visit::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun userHistoryDao(): UserHistoryDao

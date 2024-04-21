@@ -20,7 +20,6 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
     fun insertUser(newUser: User) {
         repository.insertUser(newUser)
     }
-    
     fun updateUser(user: User) {
         coroutineScope.launch(Dispatchers.IO) {
             try {
@@ -97,4 +96,4 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
             // Optionally handle the case where there is no user to update
         }
     }
-
+}
