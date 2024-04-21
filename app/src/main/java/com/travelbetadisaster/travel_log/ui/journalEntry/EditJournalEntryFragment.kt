@@ -90,16 +90,15 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
     }
 
     private fun saveEntry() {
-        val newLocationID = (activity as MainActivity).callLocation().time.toInt() //TODO this doesn't seem to work
-        Log.e("Timestamp", newLocationID.toString())
+        val newLocationID = (activity as MainActivity).getTime()
         val newEntryTitle = binding.journalTitle.text.toString()
 //      pulls location title from EditText box and lat/long from device current location using callLocation from MainActivity.
         val newEntryTbdLocation = TbdLocation(
             id = newLocationID, // this doesn't really work for an id but we're running outta time and I can't figure out how to make it work the right way
             name = binding.journalEntryLocation.text.toString(),
             description = "",
-            lattitude = (activity as MainActivity).callLocation().latitude.toString(),
-            longitude = (activity as MainActivity).callLocation().longitude.toString()
+            lattitude = (activity as MainActivity).getLatitude(),
+            longitude = (activity as MainActivity).getLongitude()
         )
         Log.e("lat", newEntryTbdLocation.lattitude!!)
 /*        val newEntryImage = 0

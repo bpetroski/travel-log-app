@@ -8,7 +8,6 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -44,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var location: Location
     private lateinit var latitude: String
     private lateinit var longitude: String
+    private var time: Int = 0
 
 
     // not private so that they can be passed to the correct fragment
@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity() {
 
         // location perms code
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        getCurrentLocation()
 
 
     }
@@ -110,21 +111,25 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    // call from other fragments for location
-    fun callLocation(): Location{
-        location = Location("default location")
+    fun getLatitude(): String {
         getCurrentLocation()
-        Log.e("zzz", "call Location")
-        return location
+        return latitude
+    }
+
+    fun getLongitude(): String {
+        getCurrentLocation()
+        return longitude
+    }
+
+    fun getTime(): Int {
+        getCurrentLocation()
+        return time
     }
 
     private fun getCurrentLocation(){
         // reference video https://www.youtube.com/watch?v=mwzKYIB9cQs
-        Log.e("zzz", "get currentLocation")
         if (checkPerms()){
-            Log.e("zzz", "good permis")
             if (isLocationEnabled()){
-                Log.e("zzz", "Location Enabled")
                 // get lat and long
                 if (ActivityCompat.checkSelfPermission(
                         this,
@@ -134,22 +139,19 @@ class MainActivity : AppCompatActivity() {
                         Manifest.permission.ACCESS_COARSE_LOCATION
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
-                    Log.e("zzz", "self permission")
                     requestPermission()
                     return
                 }
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener(this){
-                    Log.e("zzz", "get lastLocation")
                     val location:Location? = it.result
                     if(location==null){
-                        Log.e("zzz", "its null")
                         Toast.makeText(applicationContext, "There was an Error", Toast.LENGTH_SHORT).show()
                     }else {
                         // get success
-                        Log.e("zzz", "not null")
                         this.location = location
                         latitude = location.latitude.toString()
                         longitude = location.longitude.toString()
+                        time = location.time.toInt()
                     }
                 }
             }else {
@@ -159,7 +161,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }else {
-            Log.e("zzz", "bad permiss")
             // request perms
             requestPermission()
         }
