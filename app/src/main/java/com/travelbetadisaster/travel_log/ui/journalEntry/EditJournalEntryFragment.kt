@@ -94,7 +94,7 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
         val newEntryTitle = binding.journalTitle.text.toString()
         val newEntryImage = fileTimestamp
         val newEntryDescription = binding.journalDescription.text.toString()
-        val formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy")
+        val formatter = DateTimeFormatter.ofPattern("MM-dd-yy")
         val newEntryDateTime = LocalDateTime.now().format(formatter)
 
         val locationID = (activity as MainActivity).getLocationID()
