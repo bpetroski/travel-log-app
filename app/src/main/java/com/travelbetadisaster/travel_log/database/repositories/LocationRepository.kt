@@ -13,7 +13,7 @@ class LocationRepository(private val locationDao: LocationDao) {
 //  changed to match code from https://www.youtube.com/watch?v=-LNg-K7SncM
     private var tbdLocation: TbdLocation? = null
     private val searchResults = MutableLiveData<List<TbdLocation>?>()
-    private var allLocations: LiveData<List<TbdLocation>>? = locationDao?.getAllLocations()
+    var allLocations: LiveData<List<TbdLocation>>? = locationDao?.getAllLocations()
     private var sortedList = MutableLiveData<List<TbdLocation>?>()
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 

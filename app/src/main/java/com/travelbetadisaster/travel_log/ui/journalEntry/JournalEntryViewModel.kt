@@ -17,6 +17,7 @@ class JournalEntryViewModel(private val journalRepository: JournalRepository, pr
 
     // Function to save or update a visit entry
 
+
     fun getVisit(id: Int) : LiveData<Visit> {
         return journalRepository.getVisit(id)
     }

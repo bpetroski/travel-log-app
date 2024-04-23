@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.travelbetadisaster.travel_log.JournalApplication
 import com.travelbetadisaster.travel_log.MainActivity
 import com.travelbetadisaster.travel_log.R
+import com.travelbetadisaster.travel_log.database.tables.TbdLocation
 import com.travelbetadisaster.travel_log.databinding.FragmentJournalListBinding
 
 
@@ -57,6 +59,9 @@ class JournalListFragment() : Fragment(), OnItemClickListener  {
         viewModel.getAllVisits()?.observe(viewLifecycleOwner) { visits ->
             visits?.let { adapter?.setVisitList(it) }
         }
+        viewModel.getAllLocations()?.observe(viewLifecycleOwner) { locations ->
+            locations?.let { adapter?.setLocationList(it) }
+        }
         viewModel.getSearchResults().observe(viewLifecycleOwner) { visits ->
             visits?.let {
                 if (it.isNotEmpty()) {
@@ -87,5 +92,7 @@ class JournalListFragment() : Fragment(), OnItemClickListener  {
         val action= JournalListFragmentDirections.actionNavJournalListToJournalEntryFragment(id)
         findNavController().navigate(action)
     }
+
+
 
 }

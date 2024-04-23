@@ -60,12 +60,14 @@
                     android:textColor="@color/design_default_color_on_primary"
                     android:text="@string/default_date"/>
             </LinearLayout>
+
             <TextView
+                android:id="@+id/journalLocation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="11sp"
+                android:text="@string/default_location"
                 android:textColor="@color/design_default_color_on_primary"
-                android:text="@string/default_location"/>
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/journalDescription"
