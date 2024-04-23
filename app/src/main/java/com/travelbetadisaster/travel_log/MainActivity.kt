@@ -8,6 +8,7 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -32,6 +33,7 @@ import com.travelbetadisaster.travel_log.ui.journalList.JournalListModelFactory
 import com.travelbetadisaster.travel_log.ui.journalList.JournalListViewModel
 import com.travelbetadisaster.travel_log.ui.profile.ProfileModelFactory
 import com.travelbetadisaster.travel_log.ui.profile.ProfileViewModel
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     // location vals
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient // for pulling current lat/long
+    private var locationID: Int = 0
     private lateinit var location: Location
     private lateinit var latitude: String
     private lateinit var longitude: String
@@ -120,10 +123,9 @@ class MainActivity : AppCompatActivity() {
         getCurrentLocation()
         return longitude
     }
-
-    fun getTime(): Int {
+    fun getLocationID(): Int {
         getCurrentLocation()
-        return time
+        return locationID
     }
 
     private fun getCurrentLocation(){
@@ -151,7 +153,9 @@ class MainActivity : AppCompatActivity() {
                         this.location = location
                         latitude = location.latitude.toString()
                         longitude = location.longitude.toString()
-                        time = location.time.toInt()
+                        time = System.currentTimeMillis().toInt()
+                        locationID = (location.latitude + location.longitude + (System.currentTimeMillis())/1000).roundToInt()
+                        Log.e("calc location ID", "${location.latitude} + ${location.longitude} + ${(System.currentTimeMillis())/1000} = ${locationID}" )
                     }
                 }
             }else {

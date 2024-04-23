@@ -1,5 +1,6 @@
 package com.travelbetadisaster.travel_log.ui.journalEntry
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -27,6 +28,10 @@ class JournalEntryViewModel(private val journalRepository: JournalRepository, pr
         viewModelScope.launch {
             if (visit.id == 0) {
                 journalRepository.insertVisit(visit)
+/*                Log.e("what is id", tbdLocation.id.toString())
+                Log.e("get location of ID", getLocation(tbdLocation.id).value?.id.toString())
+                Log.e("repo for ID", locationRepository.getLocation(tbdLocation.id).value?.id.toString())
+                Log.e("hardcode", locationRepository.getLocation(37841857).value?.name.toString())*/
                 locationRepository.insertLocation(tbdLocation)
             } else {
                 journalRepository.updateVisit(visit)

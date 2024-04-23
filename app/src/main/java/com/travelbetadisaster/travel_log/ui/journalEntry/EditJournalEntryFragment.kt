@@ -90,32 +90,61 @@ class EditJournalEntryFragment : BottomSheetDialogFragment() {
     }
 
     private fun saveEntry() {
-        val newLocationID = (activity as MainActivity).getTime()
+
         val newEntryTitle = binding.journalTitle.text.toString()
-//      pulls location title from EditText box and lat/long from device current location using callLocation from MainActivity.
+        val newEntryImage = fileTimestamp
+        val newEntryDescription = binding.journalDescription.text.toString()
+        val formatter = DateTimeFormatter.ofPattern("MM-dd-yy")
+        val newEntryDateTime = LocalDateTime.now().format(formatter)
+
+        val locationID = (activity as MainActivity).getLocationID()
+        val currentLocation = viewModel.getLocation(locationID)
+
+
+
         val newEntryTbdLocation = TbdLocation(
-            id = newLocationID, // this doesn't really work for an id but we're running outta time and I can't figure out how to make it work the right way
+            id = locationID, // this doesn't really work for an id but we're running outta time and I can't figure out how to make it work the right way
             name = binding.journalEntryLocation.text.toString(),
             description = "",
             lattitude = (activity as MainActivity).getLatitude(),
             longitude = (activity as MainActivity).getLongitude()
         )
-        Log.e("lat", newEntryTbdLocation.lattitude!!)
-/*        val newEntryImage = 0
-        if(photoAttached){val newEntryImage = fileTimestamp.toInt()}*/
-        val newEntryImage = fileTimestamp
-        val newEntryDescription = binding.journalDescription.text.toString()
-        val formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy")
-        val newEntryDateTime = LocalDateTime.now().format(formatter)
 
-        if(newEntryTitle == "" || newEntryDescription == "" || newEntryDateTime == ""){
+        val existingTbdLocation = TbdLocation(
+            id = currentLocation.value?.id ?: 0,
+            name = currentLocation.value?.name.toString(),
+            description = "",
+            lattitude = currentLocation.value?.lattitude.toString(),
+            longitude = currentLocation.value?.longitude.toString()
+        )
+
+
+        Log.e("lat", newEntryTbdLocation.lattitude!!)
+
+//        testing what happens when you getLocation for a non exisiting location ID
+/*        Log.e("non existing location id", viewModel.getLocation(6969).value?.id.toString())
+        Log.e("non real id is null?", (viewModel.getLocation(6969).value?.id == null).toString()) // always shows true
+        Log.e("real id?", (viewModel.getLocation(37841857).value?.id == null).toString()) // always shows true
+        Log.e("can i get the name?", viewModel.getLocation(37841857).value!!.name.toString()) // returns null
+*/
+
+        if(newEntryTitle == "" || newEntryDescription == "" || newEntryDateTime == ""){ // check input
             Toast.makeText(activity,"Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }else{
-            val entry = Visit(newEntryTitle, newLocationID, newEntryImage, newEntryDescription, newEntryDateTime)
-            viewModel.saveVisit(entry, newEntryTbdLocation)
-            dismiss()
+            val entry = Visit(newEntryTitle, locationID, newEntryImage, newEntryDescription, newEntryDateTime)
+            if(currentLocation.value?.id == null){ // new entry with new location
+                Log.e("zzz","Construct and pass new Location")
+                viewModel.saveVisit(entry, newEntryTbdLocation)
+                dismiss()
+            }else{ // new entry with existing location
+                Log.e("zzz", "Construct and pass existing Location")
+                viewModel.saveVisit(entry, existingTbdLocation)
+                dismiss()
+            }
         }
+
+
     }
 
     override fun onDestroyView() {

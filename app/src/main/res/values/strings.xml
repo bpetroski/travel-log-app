@@ -61,4 +61,8 @@
     <string name="fragment_profile">fragment_profile</string>
     <string name="default_date">01/01/1970</string>
     <string name="new_bucket_list_item">New Bucket List Item</string>
+    <string name="your_profile_picture">Your Profile Picture</string>
+    <string name="placeholder_username">PlaceHolder Username</string>
+    <string name="placeholder_hometown">Placeholder HomeTown</string>
+    <string name="placeholder_bio">This is the bio for the user profile. This string is the full character limit for the user biography.</string>
 </resources>

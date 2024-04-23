@@ -9,10 +9,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_primary">
+        android:layout_height="80dp"
+        android:background="?attr/colorPrimary">
 
-        <TextView
+<!--        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -21,7 +21,7 @@
             android:textColor="@color/design_default_color_on_primary"
             android:text="@string/journal_entry"
             android:textSize="30sp"
-            style="@style/TextAppearance.AppCompat.Title"/>
+            style="@style/TextAppearance.AppCompat.Title"/>-->
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
             android:id="@+id/btnEdit"
             android:contentDescription="@string/edit"
             android:src="@drawable/edit_journal"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="?attr/colorPrimary"
             app:tint="@color/design_default_color_on_primary" />
 
         <ImageButton
@@ -44,19 +44,7 @@
             android:id="@+id/btnDelete"
             android:contentDescription="@string/delete"
             android:src="@drawable/baseline_delete_24"
-            android:backgroundTint="@color/design_default_color_primary"
-            app:tint="@color/design_default_color_on_primary" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:id="@+id/btnClose"
-            android:contentDescription="@string/close_journal"
-            android:src="?attr/actionModeCloseDrawable"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="?attr/colorPrimary"
             app:tint="@color/design_default_color_on_primary" />
 
     </LinearLayout>
