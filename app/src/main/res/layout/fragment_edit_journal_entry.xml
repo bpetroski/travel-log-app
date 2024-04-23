@@ -93,7 +93,7 @@
             android:layout_weight="1"
             android:id="@+id/btnSetLocation"
             android:contentDescription="@string/set_location"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="?attr/colorPrimary"
             android:src="@drawable/baseline_pin_drop_24"
             app:tint="@color/design_default_color_on_primary">
         </ImageButton>
@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="?attr/colorPrimary"
             android:contentDescription="@string/add_picture"
             android:src="@drawable/ic_menu_camera"
             app:tint="@color/design_default_color_on_primary">

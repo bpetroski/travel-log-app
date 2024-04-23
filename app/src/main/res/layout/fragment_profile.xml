@@ -3,114 +3,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:background="@drawable/rounded_background"
+        android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="140dp"
-            android:layout_marginBottom="8dp"
-            android:contentDescription="@string/todo"
-            app:layout_constraintBottom_toTopOf="@+id/hometown"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            android:id="@+id/profilePicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+            android:contentDescription="@string/your_profile_picture"
             tools:ignore="ImageContrastCheck"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/profilepic" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/bio"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_bio"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView">
-        </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp">
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_username"
+                android:textColor="@color/design_default_color_on_primary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/userHometown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_hometown"
+                android:textColor="@color/design_default_color_on_primary"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/userBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/placeholder_bio"
+                android:textColor="@color/design_default_color_on_primary"
+                android:textSize="12sp"/>
+        </LinearLayout>
 
 
-        <Button
-            android:id="@+id/editButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_profile"
-            app:layout_constraintTop_toBottomOf="@+id/mapView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/homeButton"
-            app:layout_constraintVertical_chainStyle="packed"
-            android:layout_marginTop="16dp"/>
-
-        <Button
-            android:id="@+id/homeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home"
-            app:layout_constraintTop_toBottomOf="@+id/editButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp"/>
+    </LinearLayout>
 
 
-        <EditText
-            android:id="@+id/hometown"
-            android:layout_width="230dp"
-            android:layout_height="57dp"
-            android:layout_marginBottom="16dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/hometown"
-            android:inputType="textPostalAddress"
-            app:layout_constraintBottom_toTopOf="@+id/nameContainer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/edit_profile" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/bioContainer"
-            android:layout_width="395dp"
-            android:layout_height="52dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="465dp"
-            tools:text="Enter Bio" />
+<!--    <include layout="@layout/fragment_journal_list"/>-->
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameContainer"
-            android:layout_width="422dp"
-            android:layout_height="58dp"
-            android:hint="@string/enter_name"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="369dp"
-            tools:ignore="MissingConstraints,VisualLintBounds">
+<!-- not exactly sure what this was for? -->
+<!--    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="SpeakableTextPresentCheck" />-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/name"
-                android:layout_width="396dp"
-                android:layout_height="match_parent"
-                android:textColorHint="#616161"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bioContainer"
-            app:layout_constraintVertical_bias="0.121"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

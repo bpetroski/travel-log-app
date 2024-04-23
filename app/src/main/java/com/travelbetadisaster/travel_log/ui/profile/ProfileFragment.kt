@@ -38,9 +38,9 @@ class ProfileFragment : Fragment() {
         val view = binding.root
 
 
-        textViewName = view.findViewById(R.id.name)
-        textViewHomeTown = view.findViewById(R.id.hometown)
-        textViewDescription = view.findViewById(R.id.bioContainer)
+        textViewName = view.findViewById(R.id.userName)
+        textViewHomeTown = view.findViewById(R.id.userHometown)
+        textViewDescription = view.findViewById(R.id.userBio)
 
         listenerSetup()
 
@@ -53,7 +53,7 @@ class ProfileFragment : Fragment() {
       //  TODO("set button names correctly")
       //  TODO("there are no buttons on fragment")
         binding.editButton.setOnClickListener { onEditClick() }
-        binding.homeButton.setOnClickListener { onXClick() }
+//        binding.homeButton.setOnClickListener { onXClick() }
      //   /*binding.historyButton.setOnClickListener { onHistoryClick() }*/ TODO( "if history is implemented in time re-enable this")
     }
 
