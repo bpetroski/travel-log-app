@@ -59,7 +59,7 @@ class EditProfileFragment : Fragment() {
     private fun onSaveClick() {
         val name = binding.editTextName.text.toString()
         val homeTownText = binding.editTextHomeTown.text.toString()
-        val homeTown = homeTownText.toIntOrNull()
+        val homeTown = 1713900233 //todo hardcoded for sake of presentation
         val description = binding.editTextDescription.text.toString()
 
         if (name.isNotEmpty() && homeTown != null && description.isNotEmpty()) {

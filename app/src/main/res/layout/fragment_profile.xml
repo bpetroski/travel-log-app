@@ -35,7 +35,7 @@
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/placeholder_username"
+                android:text="Patrick"
                 android:textColor="@color/design_default_color_on_primary"
                 android:textSize="18sp" />
 
@@ -43,9 +43,9 @@
                 android:id="@+id/userHometown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/placeholder_hometown"
+                android:text="South Lyon"
                 android:textColor="@color/design_default_color_on_primary"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/userBio"
@@ -53,9 +53,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="@string/placeholder_bio"
+                android:text="Love to Code Love to Travel"
                 android:textColor="@color/design_default_color_on_primary"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
         </LinearLayout>
 
 

@@ -31,6 +31,8 @@ import com.travelbetadisaster.travel_log.ui.journalEntry.JournalEntryViewModel
 import com.travelbetadisaster.travel_log.ui.journalEntry.JournalItemModelFactory
 import com.travelbetadisaster.travel_log.ui.journalList.JournalListModelFactory
 import com.travelbetadisaster.travel_log.ui.journalList.JournalListViewModel
+import com.travelbetadisaster.travel_log.ui.maps.MapsViewModel
+import com.travelbetadisaster.travel_log.ui.maps.MapsViewModelFactory
 import com.travelbetadisaster.travel_log.ui.profile.ProfileModelFactory
 import com.travelbetadisaster.travel_log.ui.profile.ProfileViewModel
 import kotlin.math.roundToInt
@@ -63,6 +65,11 @@ class MainActivity : AppCompatActivity() {
     }
     val profileViewModel: ProfileViewModel by viewModels {
         ProfileModelFactory((application as JournalApplication).profileRepository)
+    }
+    val mapsViewModel: MapsViewModel by viewModels {
+        MapsViewModelFactory((application as JournalApplication).journalRepository,
+            (application as JournalApplication).locationRepository,
+            (application as JournalApplication).mapRepository)
     }
 
 

@@ -23,6 +23,9 @@ import android.util.Log
 import android.widget.Button
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.Task
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
@@ -30,17 +33,24 @@ import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
+import com.travelbetadisaster.travel_log.MainActivity
+import com.travelbetadisaster.travel_log.database.tables.TbdLocation
+import com.travelbetadisaster.travel_log.database.tables.Visit
 
 
 class MapsFragment : Fragment() {
 
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private lateinit var mapsViewModel: MapsViewModel
+    private val mapsViewModel: MapsViewModel get() = (activity as MainActivity).mapsViewModel
+    private var journalList: LiveData<List<Visit>>? = null
+    private var locationList:LiveData<List<TbdLocation>>? = null
+
 
     private val callback = OnMapReadyCallback { googleMap ->
         mMap = googleMap
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+        addMarkers()
 
         val lastKnownLocation = mapsViewModel.getLastKnownLocation()
         if (lastKnownLocation != null) {
@@ -124,7 +134,6 @@ class MapsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mapsViewModel = ViewModelProvider(this).get(MapsViewModel::class.java)
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
@@ -138,7 +147,10 @@ class MapsFragment : Fragment() {
         if (!Places.isInitialized()) {
             Places.initialize(requireContext(), "AIzaSyCCFtPA4pDJ_-kwrCSK6isuxVCtJ5mYtjA")
         }
-        val placesClient: PlacesClient = Places.createClient(requireActivity())
+        /*val placesClient: PlacesClient = Places.createClient(requireActivity())*/
+        journalList= mapsViewModel.getAllVisits()
+        locationList = mapsViewModel.getAllLocations()
+        /*addMarkers()*/
 
         // Example usage of ViewModel to retrieve or save the last known location
         // Consider implementing these in response to user actions or lifecycle events
@@ -152,6 +164,25 @@ class MapsFragment : Fragment() {
         val intent = Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
             .build(requireContext())
         startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE)
+    }
+    private fun addMarkers() {
+
+
+        journalList?.observe(viewLifecycleOwner) { visits ->
+            for(visit in visits) {
+                locationList?.observe(viewLifecycleOwner) { locations ->
+                    val lat = locations?.find { location -> location.id == visit.location }?.lattitude?.toDouble()
+                    val lon =locations?.find { location -> location.id == visit.location }?.longitude?.toDouble()
+                    val coordinates = LatLng(lat!!, lon!!)
+                    mMap.addMarker(
+                        MarkerOptions()
+                            .position(coordinates)
+                            .title(visit.name)
+                    )
+                }
+            }
+            //todo set the context to surround the pins
+        }
     }
 
 
